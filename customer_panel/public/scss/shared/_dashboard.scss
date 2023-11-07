@@ -1,0 +1,62 @@
+.icon-bg {
+  width: 56px;
+  height: 56px;
+  border-radius: 7px;
+  background: theme-color(success);
+  text-align: center;
+  margin-right: 24px;
+  i {
+    color: $white;
+    font-size: 20px;
+    margin-top: 14px;
+    display: inline-block;
+  }
+  @media (max-width: 1024px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+.chart-wrapper {
+  height: 50px;
+}
+.canvas-bar-wrapper {
+  height: 90px;
+}
+.bgwhite {
+  .jvectormap-container {
+    background-color: $white !important;
+    svg {
+      height: 130px;
+    }
+  }
+}
+.chart-legends-visitor {
+  .legend-label {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    margin-right: 10px;
+  }
+}
+.scatter-wrapper {
+  height: 320px;
+}
+.flot-chart-wrapper {
+  height: 250px;
+}
+#flotChart {
+  .flot-text {
+    color: #bababa !important; //overrride float tick color
+    font-size: 9px !important; //overrride float tick size
+  }
+}
+.dark-theme {
+  .bgwhite {
+    .jvectormap-container {
+      background-color: $dark !important;
+      svg {
+        height: 130px;
+      }
+    }
+  }
+}

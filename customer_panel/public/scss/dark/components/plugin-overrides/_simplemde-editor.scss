@@ -1,0 +1,9 @@
+.editor-toolbar {
+    a {
+      @extend .text-light;
+    }
+  }
+  .CodeMirror {
+    background: inherit;
+    border: 1px solid $border-color;
+  }

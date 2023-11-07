@@ -1,0 +1,17 @@
+.dark-theme {
+  .btn-action {
+    color: $sidebar-dark-menu-color;
+  }
+  .border-bottom,
+  .border-top,
+  .border-left,
+  .border-right,
+  .border {
+    border-color: $border-color-dark !important;
+  }
+}
+body {
+  &.dark-theme {
+    color: $body-color-dark;
+  }
+}

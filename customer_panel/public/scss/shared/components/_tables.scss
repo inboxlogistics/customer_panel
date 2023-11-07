@@ -1,0 +1,114 @@
+/* Tables */
+
+.table {
+  margin-bottom: 0;
+  border-bottom: 1px solid $thead-bg;
+
+  thead {
+    border-top: 1px solid $table-bordertop-color;
+    border-bottom: 1px solid $table-bordertop-color;
+    th {
+      border-top: 0;
+      border-bottom-width: 1px;
+      font-family: $type1;
+      font-weight: 500;
+      padding-left: 25px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .rtl & {
+        padding-left: 0;
+        padding-right: 25px;
+      }
+
+      i {
+        margin-left: 0.325rem;
+      }
+    }
+    &.bg-light-variant {
+      tr {
+        th {
+          background: $table-accent-bg;
+          color: $thead-color;
+        }
+      }
+    }
+  }
+
+  th,
+  td {
+    vertical-align: middle;
+    font-size: $table-font-size;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 20px 0 29px 25px;
+
+    img {
+      width: 30px;
+      height: 29px;
+      border-radius: 100%;
+    }
+
+    .badge {
+      margin-bottom: 0;
+    }
+  }
+
+  &.table-borderless {
+    border: none;
+
+    tr,
+    td,
+    th {
+      border: none;
+    }
+  }
+}
+.table-responsive {
+  display: inline-table;
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+.dark-theme {
+  .table {
+    color: $table-color-dark;
+    border-bottom: 1px solid $thead-bg-dark;
+
+    thead {
+      border-top: 1px solid $table-bordertop-color-dark;
+      border-bottom: 1px solid $table-bordertop-color-dark;
+
+      &.bg-light-variant {
+        tr {
+          th {
+            background: $table-accent-bg-dark;
+            color: $thead-color-dark;
+          }
+        }
+      }
+    }
+    td {
+      border-top: 1px solid $table-bordertop-color-dark;
+    }
+    th {
+      border-bottom: 1px solid $table-bordertop-color-dark;
+    }
+  }
+  .table-striped {
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: $content-bg-dark;
+        }
+      }
+    }
+  }
+  .table-bordered {
+    th {
+      border: 1px solid $border-color-dark;
+    }
+    td {
+      border: 1px solid $border-color-dark;
+    }
+  }
+}

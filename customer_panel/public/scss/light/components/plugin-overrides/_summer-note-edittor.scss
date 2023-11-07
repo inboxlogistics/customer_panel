@@ -1,0 +1,28 @@
+.note-editor.note-frame {
+  .note-editing-area {
+    .note-editable {
+      background: inherit;
+      color: $editor-color;
+    }
+  }
+}
+.dark-theme {
+  .note-toolbar {
+    background-color: $content-bg-dark;
+  }
+  .note-btn-group {
+    .btn {
+      &.btn-light {
+        background: $dark;
+        border: 1px solid $border-color-dark;
+      }
+    }
+  }
+  .note-editor.note-frame {
+    .note-editing-area {
+      .note-editable {
+        color: $editor-color-dark;
+      }
+    }
+  }
+}

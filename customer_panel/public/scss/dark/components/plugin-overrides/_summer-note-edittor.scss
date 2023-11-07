@@ -1,0 +1,23 @@
+.note-editor.note-frame {
+  .note-editing-area {
+    .note-editable {
+      background: inherit;
+      color: $editor-color;
+    }
+  }
+}
+
+.note-popover .popover-content,
+.card-header.note-toolbar {
+  background: inherit;
+  .note-btn-group {
+    .btn {
+      background: inherit;
+      color: $white;
+      border: 1px solid $border-color;
+    }
+  }
+}
+.note-editor.note-frame .note-statusbar {
+    background-color: inherit;
+}
