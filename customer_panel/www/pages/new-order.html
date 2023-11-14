@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <style>
+      .example-form {
+        height: 2000px; /* Adjust the height as needed */
+      }     
+    </style> -->
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -205,267 +210,271 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">New Order</h4>
-                    <form class="form-sample">
-                      <!-- <p class="card-description">Personal info</p> -->
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Ref Order No </label>
-                            <div class="col-sm-9">
-                              <input type="number" id="numberoforder" class="form-control" required />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Customer Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" id="buyer_name" class="form-control" required/>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <!-- <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Gender</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div> -->
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Customer Email </label>
-                            <div class="col-sm-9">
-                              <input type="email" id="buyer_email" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Customer Phone Number </label>
-                            <div class="col-sm-9">
-                              <input type="number" id="buyr_contact_num" class="form-control" required />
-                            </div>
-                          </div>
-                        </div>  
-                      </div>
-                      <!-- <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Category</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Category1</option>
-                                <option>Category2</option>
-                                <option>Category3</option>
-                                <option>Category4</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Membership</label>
-                            <div class="col-sm-4">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked /> Free </label>
+                    <form id="example-form" action="#">
+                      <div>
+                        <h3>Contact</h3>
+                        <section>
+                          <h3>Contact</h3>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Customer Phone Number </label>
+                                <div class="col-sm-9">
+                                  <input type="number" id="buyr_contact_num" class="form-control" required />
+                                </div>
                               </div>
-                            </div>
-                            <div class="col-sm-5">
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2" /> Professional </label>
+                            </div>  
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Customer Name</label>
+                                <div class="col-sm-9">
+                                  <input type="text" id="buyer_name" class="form-control" required/>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div> -->
-                      <!-- <p class="card-description">Address</p> -->
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Address</label>
-                            <div class="col-sm-9">
-                              <input type="text" id="locationid" class="form-control" />
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Address </label>
+                                <div class="col-sm-9">
+                                  <textarea rows="10" id="address" class="form-control" name="notes" rows="23" cols="35"></textarea>
+                                </div>
+                              </div>
+                            </div> 
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Customer Email </label>
+                                <div class="col-sm-9">
+                                  <input type="number" id="email" class="form-control" required />
+                                </div>
+                              </div>
+                            </div> 
+                            
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <div class="col-sm-9">
+                                  <button type="button" class="btn btn-primary"> Change Address </button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <div class="col-sm-9">
+                                  <button type="button" class="btn btn-primary"> Add Address </button>
+                                </div>
+                              </div>
+                            </div> 
+                          </div>
+                        </section>
+                        <h3>Shipping</h3>
+                        <section>
+                          <h3>Shipping Details</h3>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">House No</label>
+                                <div class="col-sm-9">
+                                  <input type="text" id="locationid" class="form-control" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Building No</label>
+                                <div class="col-sm-9">
+                                  <input type="number" id="building_no" class="form-control" />
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Zone No</label>
-                            <div class="col-sm-9">
-                              <input type="number" id="zone_num" class="form-control" required />
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Street</label>
+                                <div class="col-sm-9">
+                                  <input type="text" id="street" class="form-control" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Zone No</label>
+                                <div class="col-sm-9">
+                                  <input type="number" id="zone_num" class="form-control" required />
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Street</label>
-                            <div class="col-sm-9">
-                              <input type="text" id="street" class="form-control" />
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group row">
+                                  <label class="col-sm-3 col-form-label">Delivered By</label>
+                                  <div class="col-sm-9">
+                                    <select class="form-control" id="delivery_order_type">
+                                      <option value="inbox" selected>Inbox</option>
+                                      <option value="other_company">Company</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Payment</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="payment" id="paid" value="" />
+                                                Paid
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="payment" id="cod" value="option2" />
+                                                COD
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="payment" id="poslink" value="option3" />
+                                                POS/Link
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Building No</label>
-                            <div class="col-sm-9">
-                              <input type="number" id="building_no" class="form-control" />
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Delivery Instruction</label>
+                                <div class="col-sm-9">
+                                  <select class="form-control" id="delivery_instruction">
+                                    <option></option>
+                                    <option value="Normal" selected>Don't Knock The Door</option>
+                                    
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Notes </label>
+                                <div class="col-sm-9">
+                                  <textarea rows="10" id="notes" class="form-control" name="notes" rows="23" cols="35"   placeholder="Notes"></textarea>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Unit No</label>
-                            <div class="col-sm-9">
-                              <input type="number" id="unit_no" class="form-control" />
+                        </section>
+                        <h3>Items</h3>
+                        <section>
+                          <h3>Items</h3>
+                          <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                              <div class="card-body">
+                                <h4 class="card-title">Delivery Order Item</h4>
+                                <div class="table-responsive">
+                                  <table class="table table-bordered" id="tbl_posts">
+                                    <thead>
+                                      <tr>
+                                        <th>No.</th>
+                                        <th>TAG</th>
+                                        <th>Item Name</th>
+                                        <th>Barcode</th>
+                                        <th>Qty</th>
+                                        <th>UON</th>
+                                        <th>Rate</th>
+                                        <th>Total</th>
+                                        <th>Vas</th>
+                                        <th>Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="tbl_posts_body">
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="addRow()">Add Row</button>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Delivery Instruction Date</label>
-                            <div class="col-sm-9">
-                              <input type="date" id="delivery_date" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                          <script>
+                            function addRow() {
+                                var tableBody = document.getElementById("tbl_posts_body");
+                                var newRow = tableBody.insertRow(tableBody.rows.length);
+                                newRow.insertCell(0).innerHTML = tableBody.rows.length;
+                        
+                                for (var i = 1; i <= 8; i++) {
+                                    var cell = newRow.insertCell(i);
+    
+                                    var input = document.createElement("input");
+                                    input.type = "text";
+                                    input.className = "form-control";
+                                    cell.appendChild(input);
+                                }
+                        
+                                var deleteButton = document.createElement("button");
+                                deleteButton.innerHTML = '<i class="mdi mdi-delete"></i>';
+                                deleteButton.className = "btn btn-danger btn-sm";
+                                deleteButton.onclick = function () {
+                                    deleteRow(newRow);
+                                };
+                        
+                                var deleteCell = newRow.insertCell(9);
+                                deleteCell.appendChild(deleteButton);
+                            }
+                        
+                            function deleteRow(row) {
+                                var index = row.rowIndex;
+                                document.getElementById("tbl_posts").deleteRow(index);
+                                updateRowNumbers();
+                            }
+                        
+                            function updateRowNumbers() {
+                                var tableBody = document.getElementById("tbl_posts_body");
+                                for (var i = 0; i < tableBody.rows.length; i++) {
+                                    tableBody.rows[i].cells[0].innerHTML = i + 1;
+                                }
+                            }
+                        </script>
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Delivery Order Type</label>
+                              <label class="col-sm-3 col-form-label">Vas Details</label>
                               <div class="col-sm-9">
-                                <select class="form-control" id="delivery_order_type">
-                                  <option></option>
-                                  <option value="Local">Local</option>
-                                  <option value="Outside">Outside</option>
-                                </select>
+                                <input type="text" id="vas_details" class="form-control" />
                               </div>
                             </div>
                           </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Time Range</label>
-                            <div class="col-sm-9">
-                              <input type="time" id="delivery_time" class="form-control" />
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-8 col-form-label"></label>
+                              <div class="col-sm-4">
+                                <button type="button" class="btn btn-primary" >Place Order</button>
+                              </div>
                             </div>
                           </div>
                         </div>
+                          <!-- <button type="submit" class="btn btn-primary"> Save </button>
+                          <button class="btn btn-light">Clear</button> -->
+                        </section>
+                        <!-- <h3>Payment</h3>
+                        <section>
+                          <h3>Payment</h3>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="checkbox" type="checkbox" /> I agree with the Terms and Conditions. </label>
+                          </div>
+                        </section> -->
                       </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Delivery Type</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" id="delivery_type">
-                                <option></option>
-                                <option value="Normal" selected>Normal</option>
-                                <option value="Express">Express</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Payment Status</label>
-                            <div class="col-sm-9">
-                              <select class="form-control" id="payment_status">
-                                <option></option>
-                                <option value="Paid">Paid</option>
-                                <option value="Unpaid">Unpaid</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Notes </label>
-                            <div class="col-sm-9">
-                              <textarea rows="10" id="notes" class="form-control" name="notes" rows="23" cols="35"   placeholder="Notes"></textarea>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-12 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Delivery Order Item</h4>
-                            <div class="table-responsive">
-                              <table class="table table-bordered" id="tbl_posts">
-                                <thead>
-                                  <tr>
-                                    <th>No.</th>
-                                    <th>Item Code</th>
-                                    <th>Description</th>
-                                    <th>Volume</th>
-                                    <th>QTY</th>
-                                    <th>Rate</th>
-                                    <th>Action</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="tbl_posts_body">
-                                  
-                                </tbody>
-                              </table>
-                            </div>
-                            <button type="button" class="btn btn-primary" onclick="addRow()">Add Row</button>
-                          </div>
-                        </div>
-                      </div>
-                      <script>
-                        function addRow() {
-                            var tableBody = document.getElementById("tbl_posts_body");
-                            var newRow = tableBody.insertRow(tableBody.rows.length);
-                            newRow.insertCell(0).innerHTML = tableBody.rows.length;
-                    
-                            for (var i = 1; i <= 5; i++) {
-                                var cell = newRow.insertCell(i);
-
-                                var input = document.createElement("input");
-                                input.type = "text";
-                                input.className = "form-control";
-                                cell.appendChild(input);
-                            }
-                    
-                            var deleteButton = document.createElement("button");
-                            deleteButton.innerHTML = '<i class="mdi mdi-delete"></i>';
-                            deleteButton.className = "btn btn-danger btn-sm";
-                            deleteButton.onclick = function () {
-                                deleteRow(newRow);
-                            };
-                    
-                            var deleteCell = newRow.insertCell(6);
-                            deleteCell.appendChild(deleteButton);
-                        }
-                    
-                        function deleteRow(row) {
-                            var index = row.rowIndex;
-                            document.getElementById("tbl_posts").deleteRow(index);
-                            updateRowNumbers();
-                        }
-                    
-                        function updateRowNumbers() {
-                            var tableBody = document.getElementById("tbl_posts_body");
-                            for (var i = 0; i < tableBody.rows.length; i++) {
-                                tableBody.rows[i].cells[0].innerHTML = i + 1;
-                            }
-                        }
-                    </script>
-                      <button type="submit" class="btn btn-primary"> Save </button>
-                      <button class="btn btn-light">Clear</button>
                     </form>
                   </div>
                 </div>
@@ -486,8 +495,7 @@
     <script src="../../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="../../assets/customer_panel/vendors/select2/select2.min.js"></script>
-    <script src="../../assets/customer_panel/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="../../assets/customer_panel/vendors/jquery-steps/jquery.steps.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="../../assets/customer_panel/js/off-canvas.js"></script>
@@ -497,9 +505,7 @@
     <script src="../../assets/customer_panel/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="../../assets/customer_panel/js/file-upload.js"></script>
-    <script src="../../assets/customer_panel/js/typeahead.js"></script>
-    <script src="../../assets/customer_panel/js/select2.js"></script>
+    <script src="../../assets/customer_panel/js/wizard.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>
