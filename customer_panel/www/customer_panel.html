@@ -1,3 +1,6 @@
+{% extends "templates/web.html" %}
+{% block title %} Customer Dashboard {% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -374,4 +377,14 @@
     <script src="../assets/customer_panel/js/dashboard.js"></script>
     <!-- End custom js for this page -->
   </body>
+  <script>
+    window.frappe = {};
+    frappe.ready_events = []
+    frappe.ready = function(fn){
+      console.log("---ready---")
+    }
+    window.dev_server = 1
+    window.socketio_port = 9002
+  </script>
 </html>
+{% endblock %}

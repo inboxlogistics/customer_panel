@@ -1,3 +1,6 @@
+{% extends "templates/web.html" %}
+{% block title %} New Order {% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -201,7 +204,7 @@
           <div class="content-wrapper">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Tickets</h4>
+                <h4 class="card-title">Orders</h4>
                 <div class="row">
                   <div class="col-12">
                     <div class="table-responsive">
@@ -359,7 +362,7 @@
                               <button class="btn btn-outline-primary"> View </button>
                             </td>
                           </tr>
-                          <a href="new-order.html" class="btn btn-primary float-right">New Order</a>
+                          <a href="new-order.html" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New Order</a>
                         </tbody>
                       </table>
                     </div>
@@ -396,4 +399,14 @@
     <script src="../../assets/customer_panel/js/data-table.js"></script>
     <!-- End custom js for this page -->
   </body>
+  <script>
+    window.frappe = {};
+    frappe.ready_events = []
+    frappe.ready = function(fn){
+      console.log("---ready---")
+    }
+    window.dev_server = 1
+    window.socketio_port = 9002
+  </script>
 </html>
+{% endblock %}

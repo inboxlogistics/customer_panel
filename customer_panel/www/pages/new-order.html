@@ -1,3 +1,6 @@
+{% extends "templates/web.html" %}
+{% block title %} New Order {% endblock %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -209,18 +212,18 @@
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">New Order</h4>
+                    <!-- <h4 class="card-title">New Order</h4> -->
                     <form id="example-form" action="#">
                       <div>
                         <h3>Contact</h3>
                         <section>
-                          <h3>Contact</h3>
+                          <h3>Contact</h3><br>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Customer Phone Number </label>
+                                <label class="col-sm-3 col-form-label">Customer Phone</label>
                                 <div class="col-sm-9">
-                                  <input type="number" id="buyr_contact_num" class="form-control" required />
+                                  <input type="text" id="buyr_contact_num" class="form-control" placeholder="Phone Number" required />
                                 </div>
                               </div>
                             </div>  
@@ -228,7 +231,7 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Customer Name</label>
                                 <div class="col-sm-9">
-                                  <input type="text" id="buyer_name" class="form-control" required/>
+                                  <input type="text" id="buyer_name" class="form-control" placeholder="Name" required/>
                                 </div>
                               </div>
                             </div>
@@ -238,7 +241,7 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Address </label>
                                 <div class="col-sm-9">
-                                  <textarea rows="10" id="address" class="form-control" name="notes" rows="23" cols="35"></textarea>
+                                  <textarea rows="10" id="address" class="form-control" name="notes" rows="23" cols="35" placeholder="Address"></textarea>
                                 </div>
                               </div>
                             </div> 
@@ -246,7 +249,7 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Customer Email </label>
                                 <div class="col-sm-9">
-                                  <input type="number" id="email" class="form-control" required />
+                                  <input type="email" id="email" class="form-control" placeholder="Email" required />
                                 </div>
                               </div>
                             </div> 
@@ -256,7 +259,7 @@
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <div class="col-sm-9">
-                                  <button type="button" class="btn btn-primary"> Change Address </button>
+                                  <button type="button" class="btn btn-outline-success btn-fw"> Change Address </button>
                                 </div>
                               </div>
                             </div> 
@@ -265,7 +268,7 @@
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <div class="col-sm-9">
-                                  <button type="button" class="btn btn-primary"> Add Address </button>
+                                  <button type="button" class="btn btn-outline-success btn-fw"> Add Address </button>
                                 </div>
                               </div>
                             </div> 
@@ -273,7 +276,7 @@
                         </section>
                         <h3>Shipping</h3>
                         <section>
-                          <h3>Shipping Details</h3>
+                          <h3>Shipping Details</h3><br>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
@@ -287,7 +290,7 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Building No</label>
                                 <div class="col-sm-9">
-                                  <input type="number" id="building_no" class="form-control" />
+                                  <input type="text" id="building_no" class="form-control" />
                                 </div>
                               </div>
                             </div>
@@ -305,7 +308,7 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Zone No</label>
                                 <div class="col-sm-9">
-                                  <input type="number" id="zone_num" class="form-control" required />
+                                  <input type="text" id="zone_num" class="form-control" required />
                                 </div>
                               </div>
                             </div>
@@ -376,7 +379,7 @@
                         </section>
                         <h3>Items</h3>
                         <section>
-                          <h3>Items</h3>
+                          <h3>Items</h3><br>
                           <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                               <div class="card-body">
@@ -390,7 +393,7 @@
                                         <th>Item Name</th>
                                         <th>Barcode</th>
                                         <th>Qty</th>
-                                        <th>UON</th>
+                                        <th>UOM</th>
                                         <th>Rate</th>
                                         <th>Total</th>
                                         <th>Vas</th>
@@ -402,7 +405,7 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <button type="button" class="btn btn-primary" onclick="addRow()">Add Row</button>
+                                <button type="button" class="btn btn-success btn-md" onclick="addRow()" style="margin-top:30px;">Add Row</button>
                               </div>
                             </div>
                           </div>
@@ -454,14 +457,6 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group row">
-                              <label class="col-sm-8 col-form-label"></label>
-                              <div class="col-sm-4">
-                                <button type="button" class="btn btn-primary" >Place Order</button>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                           <!-- <button type="submit" class="btn btn-primary"> Save </button>
                           <button class="btn btn-light">Clear</button> -->
@@ -508,4 +503,17 @@
     <script src="../../assets/customer_panel/js/wizard.js"></script>
     <!-- End custom js for this page -->
   </body>
+  <script>
+    window.frappe = {};
+    frappe.ready_events = []
+    frappe.ready = function(fn){
+      console.log("---ready---")
+      $(".wizard > .steps").hide()
+      $(".wizard > .content > .body").css('position', 'relative')
+      $(".col-form-label").css("padding-top", "3px");
+    }
+    window.dev_server = 1
+    window.socketio_port = 9002
+  </script>
 </html>
+{% endblock %}
