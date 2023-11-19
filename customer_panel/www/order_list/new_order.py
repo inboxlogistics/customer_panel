@@ -35,4 +35,20 @@ def get_context(context):
     context.total_balance = total_balance[0]['sum(debit -  credit)']
     context.user_full_name = user.full_name
     context.user_email = user.email
-    context.user_image = user.user_image 
+    context.user_image = user.user_image
+    context.item_code_list =  get_item_code()
+
+@frappe.whitelist(allow_guest=True)
+def get_item_code():
+    # customer_name= get_customer()
+    customer = "SINWAN TRADING - WABA International Commercial Co."
+    item_code_list = frappe.db.get_list("Item",
+        filters={
+            'customer': customer,
+            'disabled': 0,
+        },
+        fields = [
+            "name" 
+        ]
+    )
+    return item_code_list

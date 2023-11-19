@@ -27,62 +27,67 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="{{ user_image }}" alt="profile" />
-                <span class="login-status online"></span>
-                <!--change to offline or busy as needed-->
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="{{ user_image }}" alt="profile" />
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column pr-3">
+                  <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
+                  <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="customer_panel.html">
+                <i class="mdi mdi-home menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="/order_list">
+                <i class="mdi mdi-cart-outline menu-icon"></i>
+                <span class="menu-title">Order List</span>
+              </a>
+              <div class="collapse" id="page-layouts">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/order_list.html">Order List</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/new_order.html">New Order</a>
+                  </li>
+                </ul>
               </div>
-              <div class="nav-profile-text d-flex flex-column pr-3">
-                <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
-                <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/product_list">
+                <i class="mdi mdi-image-filter-frames menu-icon "></i>
+                <span class="menu-title">Product List</span>
+              </a>
+            </li>
+            <!-- <li class="nav-item sidebar-actions">
+              <div class="sidebar-action-btn-wrap">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input darkThemeBtn" /> Dark Mode </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input fullscreen-button" /> Fluid Container </label>
+                </div>
               </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../customer_panel.html">
-              <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
-              <i class="mdi mdi-cart-outline menu-icon"></i>
-              <span class="menu-title">Order List</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="page-layouts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/order_list.html">Order List</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../pages/new_order.html">New Order</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <!-- <li class="nav-item sidebar-actions">
-            <div class="sidebar-action-btn-wrap">
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input darkThemeBtn" /> Dark Mode </label>
+              <div class="nav-link">
+                <ul class="pl-0">
+                  <li>
+                    <a href="https://themeforest.net/item/aqua-ui-bootstrap-html-dashboard-template/27549258" class="btn btn-danger mt-3">Purchase now</a>
+                  </li>
+                </ul>
               </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input fullscreen-button" /> Fluid Container </label>
-              </div>
-            </div>
-            <div class="nav-link">
-              <ul class="pl-0">
-                <li>
-                  <a href="https://themeforest.net/item/aqua-ui-bootstrap-html-dashboard-template/27549258" class="btn btn-danger mt-3">Purchase now</a>
-                </li>
-              </ul>
-            </div>
-          </li> -->
-        </ul>
+            </li> -->
+          </ul>
       </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
@@ -204,55 +209,39 @@
           <div class="content-wrapper">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Orders</h4>
-                <div class="row">
-                  <div class="col-12">
-                    <a href="new_order.html" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New Order</a>
-                  </div>      
-                </div>
+                <h4 class="card-title">Products</h4>
                 <div class="row">
                   <div class="col-12">
                     <div class="table-responsive">
                       <table id="order-listing" class="table">
                         <thead>
-                          <tr>
-                            <th>Order ID</th>
-                            <!-- <th>Order No</th> -->
-                            <th>Customer</th>
-                            <th>Delivery Date</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                          </tr>
-                        </thead>
-                        <tbody id="table_data">
-                          <!-- {{ data }} -->
-                        {% for item in data %}
-                        <tr id="data">
-                          <td id="ecom_order_no">{{item.ecom_order_no}}</td>
-                          <td id="customer">{{item.end_user_name}}</td>
-                          <td id="delivery_date">{{item.delivery_date_and_preferred_timing}}</td>
-                          <td id="total_order_amount">{{item.total_order_amount}}</td>
-                          <td>
-                            <label class="badge badge-info">{{item.order_status}}</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary"> View </button>
-                          </td>
-                        </tr>
-                        {% endfor %}
-                          <tr id="data">
-                            <td id="ecom_order_no">1001</td>
-                            <td id="customer">naeem</td>
-                            <td id="delivery_date">2023-11-10</td>
-                            <td id="total_order_amount">100</td>
-                            <td>
-                              <label class="badge badge-info">New</label>
-                            </td>
-                            <td>
-                              <button class="btn btn-outline-primary"> View </button>
-                            </td>
-                        </tbody>
+                            <tr>
+                              <th>Item Code</th>
+                              <th>Barcode</th>
+                              <!-- <th>Item Name</th> -->
+                              <th>Description</th>
+                              <th>Available Qty</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- <a href="new-order.html" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New Order</a> -->
+                              {% for item in data %}
+                                  <tr id="data">
+                                      <td id="item_code">{{item.item_code}}</td>
+                                      <td id="item_code">{{item.item_code}}</td>
+                                      <!-- <td id="item_name">{{item.item_name}}</td> -->
+                                      <td id="item_description">{{item.item_name}}</td>
+                                      <td id="item_qty"> 100 </td>
+                                      <!-- <td>
+                                          <label class="badge badge-info">{{item.order_status}}</label>
+                                      </td> -->
+                                      <td>
+                                          <button class="btn btn-outline-primary"> View </button>
+                                      </td>
+                                  </tr>
+                              {% endfor %}
+                          </tbody>
                       </table>
                     </div>
                   </div>
@@ -292,52 +281,12 @@
     window.frappe = {};
     frappe.ready_events = []
     frappe.ready = function(fn){
-      console.log("--- order list read ---")
+      console.log("--- product list read ---")
       $('.navbar-expand-lg').hide()
       $('.footer-section').hide()
-      get_order_list();
     }
     window.dev_server = 1
     window.socketio_port = 9001
-    function get_order_list(filter_only) {
-      console.log('----calling get_order_list')
-      // let filter_data = [];'
-      //method: "customer_panel.api.get_delivery_dashboard_list",'
-      frappe.call({
-        method: "customer_panel.www.pages.order_list.get_delivery_dashboard_list",
-        args: { },
-        callback: function (r) {  
-          console.log("Call back method")
-          if(r){
-            let html = '';
-            console.log("order list");
-            console.log(r.message);
-            let data = r.message || [];
-            //let ordertotal= data.length;
-            for(let i in data){
-              console.log(data[i].name)
-              html +=  `
-                <tr id="data">
-                  <td id="ecom_order_no">${data[i].ecom_order_no}</td>
-                  <td id="customer">${data[i].end_user_name}</td>
-                  <td id="delivery_date">${data[i].delivery_date_and_preferred_timing}</td>
-                  <td id="total_order_amount">${data[i].total_order_amount}</td>
-                  <td>
-                    <label class="badge badge-info">${data[i].order_status}</label>
-                  </td>
-                  <td>
-                    <button class="btn btn-outline-primary"> View </button>
-                  </td>
-              `;
-              //$("table_data").html(html);
-            }
-          }
-          else{
-            console.log('No Data')
-          }
-        }
-      });
-    }
   </script>
 </html>
 {% endblock %}

@@ -9,22 +9,19 @@ no_cache = 1
 
 def get_context(context):
     print("------print get context----")
-    # if frappe.session.user=='Guest':
-    #     frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
+    logged_in_user = frappe.session.user
+    if logged_in_user=='Guest':
+        frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
+    userpermission_list = frappe.get_all('User Permission',filters={'user':logged_in_user,'allow':'Customer'},fields=['for_value'])
+    if(len(userpermission_list)<=0):
+        frappe.throw(_("No Customer Record Found for your Login"), frappe.PermissionError)
 
-    # context.show_sidebar=True
-    # if frappe.db.exists("Customer", {'email_id': frappe.session.user}):
-    #    
-    #     context.doc = customer
-    #     frappe.form_dict.new = 0
-    customer = frappe.get_doc("Customer", "SINWAN TRADING - WABA International Commercial Co.")
-    logged_in_user = "waba@inbox.com.qa"  #frappe.session.user
+    customer_name = userpermission_list[0].for_value
+    customer = frappe.get_doc("Customer", customer_name)
     user = frappe.get_doc("User", logged_in_user)
     context.doc = customer
     frappe.form_dict.new = 0
     frappe.form_dict.name = customer.name
-    # customer_name = get_customer()
-    customer_name = "SINWAN TRADING - WABA International Commercial Co."
     print("---calling context----")
     total_orders = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1})
     context.total_new_orders = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1, 'order_status': 'New'})
