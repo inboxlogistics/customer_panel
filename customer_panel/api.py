@@ -3,6 +3,7 @@ import frappe
 
 @frappe.whitelist(allow_guest=True)
 def get_delivery_dashboard_list():
+    print("-----get delivery dashboard list---")
     #customer_name = get_customer()
     customer = "SINWAN TRADING - WABA International Commercial Co."
     orderlist = frappe.db.get_list("Delivery Dashboard Form",

@@ -27,6 +27,7 @@ def get_context(context):
     customer_name = "SINWAN TRADING - WABA International Commercial Co."
     print("---calling context----")
     total_orders = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1})
+    context.total_new_orders = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1, 'order_status': 'New'})
     total_balance = frappe.get_all('GL Entry', filters={'is_cancelled': 0,'party': customer_name}, fields=['sum(debit -  credit)'])
     context.customer_name = customer_name
     context.total_orders = total_orders
