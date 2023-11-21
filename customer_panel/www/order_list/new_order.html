@@ -74,6 +74,12 @@
               <span class="menu-title">Product List</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tickets">
+              <i class="mdi mdi-assistant menu-icon "></i>
+              <span class="menu-title">Tickets</span>
+            </a>
+          </li>
           <!-- <li class="nav-item sidebar-actions">
             <div class="sidebar-action-btn-wrap">
               <div class="form-check">
@@ -244,9 +250,9 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Address </label>
+                                <label class="col-sm-3 col-form-label">Phone Number 2 </label>
                                 <div class="col-sm-9">
-                                  <textarea rows="10" id="address" class="form-control" name="notes" rows="23" cols="35" placeholder="Address"></textarea>
+                                  <input type="text" id="buyr_contact_num2" class="form-control" placeholder="Phone Number 2" required/>
                                 </div>
                               </div>
                             </div> 
@@ -260,7 +266,7 @@
                             </div> 
                             
                           </div>
-                          <div class="row">
+                          <!-- <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <div class="col-sm-9">
@@ -277,7 +283,7 @@
                                 </div>
                               </div>
                             </div> 
-                          </div>
+                          </div> -->
                         </section>
                         <h3>Shipping</h3>
                         <section>
@@ -323,9 +329,9 @@
                                 <div class="form-group row">
                                   <label class="col-sm-3 col-form-label">Delivered By</label>
                                   <div class="col-sm-9">
-                                    <select class="form-control" id="delivery_order_type">
+                                    <select class="form-control" style="width:100%" id="delivery_order_type">
                                       <option value="inbox" selected>Inbox</option>
-                                      <option value="other_company">Company</option>
+                                      <option value="other_company">My Driver</option>
                                     </select>
                                   </div>
                                 </div>
@@ -333,8 +339,27 @@
                               <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Payment</label>
-                                    <div class="col-sm-9">
+                                      <div class="col-sm-3">
                                         <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="payment" id="paid" value="" checked /> Paid </label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="payment" id="cod" value="option2" /> COD/POS/Link </label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="payment" id="online_link" value="option3" /> Online Link </label>
+                                        </div>
+                                      </div>
+
+
+                                        <!-- <div class="form-check">
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input" name="payment" id="paid" value="" />
                                                 Paid
@@ -351,17 +376,45 @@
                                                 <input type="radio" class="form-check-input" name="payment" id="poslink" value="option3" />
                                                 POS/Link
                                             </label>
-                                        </div>
-                                    </div>
+                                        </div> -->
                                 </div>
                             </div>
                           </div>
+                          <div class="row" id="myDriverFields" style="display: none;">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Driver Name</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" id="driver_name">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Driver Number</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" id="driver_number">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <script>
+                            $(document).ready(function () {
+                              $('#delivery_order_type').change(function () {
+                                if ($(this).val() === 'other_company') {
+                                  $('#myDriverFields').show();
+                                } else {
+                                  $('#myDriverFields').hide();
+                                }
+                              });
+                            });
+                          </script>
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Delivery Instruction</label>
                                 <div class="col-sm-9">
-                                  <select class="form-control" id="delivery_instruction">
+                                  <select class="form-control" id="delivery_instruction" style="width:100%">
                                     <option></option>
                                     <option value="Normal" selected>Don't Knock The Door</option>
                                     
@@ -369,7 +422,29 @@
                                 </div>
                               </div>
                             </div>
-                            
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Delivery Time</label>
+                                <div class="col-sm-9">
+                                  <select class="form-control" id="delivery_time" style="width:100%">
+                                    <option></option>
+                                    <option value="morning">9 AM To 12 AM</option>
+                                    <option value="noon">1 PM To 5 PM</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <div class="col-sm-2 col-form-label"></div>
+                                <div class="col-sm-10 form-check form-check-primary"><label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input"> &nbsp;&nbsp; I Need Fast Delivery <i class="input-helper"></i></label>
+                                <!-- <div class="col-sm-9"> -->
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <div class="row">
                             <div class="col-md-6">
@@ -496,7 +571,9 @@
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="../../assets/customer_panel/vendors/jquery-steps/jquery.steps.min.js"></script>
-    <script src="../../assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../../assets/customer_panel/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../../assets/customer_panel/vendors/select2/select2.min.js"></script>
+    <script src="../../assets/customer_panel/vendors/typeahead.js/typeahead.bundle.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="../../assets/customer_panel/js/off-canvas.js"></script>
@@ -508,13 +585,18 @@
     <!-- Custom js for this page -->
     <script src="../../assets/customer_panel/js/wizard.js"></script>
     <!-- End custom js for this page -->
+    <!-- Custom js for this page -->
+    <script src="../../assets/customer_panel/js/file-upload.js"></script>
+    <script src="../../assets/customer_panel/js/typeahead.js"></script>
+    <script src="../../assets/customer_panel/js/select2.js"></script>
+    <!-- End custom js for this page -->
   </body>
   <script>
     window.frappe = {};
     frappe.ready_events = []
     frappe.ready = function(fn){
       console.log("---new order---")
-      $(".wizard > .steps").hide()
+      // $(".wizard > .steps").hide()
       $(".wizard > .content > .body").css('position', 'relative')
       $(".col-form-label").css("padding-top", "3px");
       $('.navbar-expand-lg').hide()

@@ -68,6 +68,12 @@
               <span class="menu-title">Product List</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tickets">
+              <i class="mdi mdi-assistant menu-icon "></i>
+              <span class="menu-title">Tickets</span>
+            </a>
+          </li>
           <!-- <li class="nav-item sidebar-actions">
             <div class="sidebar-action-btn-wrap">
               <div class="form-check">
@@ -209,9 +215,13 @@
           <div class="content-wrapper">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Orders</h4>
+                <h4 class="card-title">Orders</h4><br>
                 <div class="row">
-                  <div class="col-12">
+                  <div class="col-6">
+                    From <input type="date" class="form-control-sm" id="from_dater"></input> &nbsp;&nbsp;&nbsp;
+                    To <input type="date" class="form-control-sm" id="to_date"></input>
+                  </div>
+                  <div class="col-6">
                     <a href="/order_list/new_order" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New Order</a>
                   </div>      
                 </div>
@@ -221,6 +231,7 @@
                       <table id="order-listing" class="table">
                         <thead>
                           <tr>
+                            <th></th>
                             <th>Order ID</th>
                             <!-- <th>Order No</th> -->
                             <th>Customer</th>
@@ -234,6 +245,7 @@
                           <!-- {{ data }} -->
                         {% for item in data %}
                         <tr id="data">
+                          <td><div class="form-check form-check-primary"><input type="checkbox" class="form-check-input"></td></div>
                           <td id="ecom_order_no">{{item.ecom_order_no}}</td>
                           <td id="customer">{{item.end_user_name}}</td>
                           <td id="delivery_date">{{item.delivery_date_and_preferred_timing}}</td>
@@ -242,7 +254,17 @@
                             <label class="badge badge-info">{{item.order_status}}</label>
                           </td>
                           <td>
-                            <button class="btn btn-outline-primary"> View </button>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                              <button type="button" class="btn btn-outline-secondary">
+                                <i class="mdi mdi-lead-pencil"></i>
+                              </button>
+                              <button type="button" class="btn btn-outline-secondary">
+                                <i class="mdi mdi-close"></i>
+                              </button>
+                              <button type="button" class="btn btn-outline-secondary">
+                                <i class="mdi mdi-rotate-right"></i>
+                              </button>
+                            </div>
                           </td>
                         </tr>
                         {% endfor %}
