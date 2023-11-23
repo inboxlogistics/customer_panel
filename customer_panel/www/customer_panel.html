@@ -267,18 +267,86 @@
                 </div>
               </div>
             </div>
+            <div class="page-header">
+              <h2 class="mb-0">Today's Info</h2>
+            </div>
             <div class="row">
+              <div class="col-sm-3 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body large-card">
+                    <div class="d-xl-flex align-items-center mb-3">
+                      <div class="icon-bg">
+                        <i class="mdi mdi-tab"></i>
+                      </div>
+                      <div>
+                        <h4 class="mb-2 font-weight-light"> Orders Received</h4>
+                        <h1 class="mb-0">{{ new_orders_today }}</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body large-card">
+                    <div class="d-xl-flex align-items-center mb-3">
+                      <div class="icon-bg">
+                        <i class="mdi mdi-square-inc-cash"></i>
+                      </div>
+                      <div>
+                        <h4 class="mb-2 font-weight-light">Orders To Be Prepared</h4>
+                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_to_be_picked_today }}
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body large-card">
+                    <div class="d-xl-flex align-items-center mb-3">
+                      <div class="icon-bg">
+                        <i class="mdi mdi-cart-plus"></i>
+                      </div>
+                      <div>
+                        <h4 class="mb-2 font-weight-light"> Orders To Be Dispatched </h4>
+                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_to_be_dispatched_today }} 
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body large-card">
+                    <div class="d-xl-flex align-items-center mb-3">
+                      <div class="icon-bg">
+                        <i class="mdi mdi-cart-plus"></i>
+                      </div>
+                      <div>
+                        <h4 class="mb-2 font-weight-light"> Orders Returned </h4>
+                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_returned_today }} 
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row">
               <div class="col-lg-6 stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Example 1</h4>
+                    <h4 class="card-title"></h4>
                     <div class="container">
                       <div class="map" id="map">Alternative content</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->

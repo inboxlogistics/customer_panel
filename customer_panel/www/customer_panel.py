@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 # from stripe import Order
+from frappe.utils import today,add_days
 from yaml import load
 
 no_cache = 1
@@ -23,8 +24,30 @@ def get_context(context):
     frappe.form_dict.new = 0
     frappe.form_dict.name = customer.name
     print("---calling context----")
+    today_date = today()
+    last_day = add_days(today_date, -1)
+    tomorrow = add_days(today_date, 1)
     total_orders = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1})
     context.total_new_orders = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1, 'order_status': 'New'})
+    context.new_orders_today = frappe.db.count('Delivery Dashboard Form', {'client_name': customer_name, 'docstatus': 1, 'order_status': ["!=", "Cancelled"],'creation': [">", last_day]})
+    context.orders_to_be_picked_today = frappe.db.count('Delivery Dashboard Form', {
+        'client_name': customer_name, 
+        'docstatus': 1, 
+        'order_status': 'New', 
+        'delivery_date_and_preferred_timing': today_date
+    })
+    context.orders_to_be_dispatched_today = frappe.db.count('Delivery Dashboard Form', {
+        'client_name': customer_name, 
+        'docstatus': 1, 
+        'order_status': ["not in", ["Dispatched", "Returned", "Cancelled"]], 
+        'delivery_date_and_preferred_timing': today_date
+    })
+    context.orders_returned_today = frappe.db.count('Delivery Dashboard Form', {
+        'client_name': customer_name, 
+        'docstatus': 1, 
+        'order_status': ["in", ["Returned"]], 
+        'delivery_date_and_preferred_timing': today_date
+    })
     total_balance = frappe.get_all('GL Entry', filters={'is_cancelled': 0,'party': customer_name}, fields=['sum(debit -  credit)'])
     context.customer_name = customer_name
     context.total_orders = total_orders
@@ -35,3 +58,4 @@ def get_context(context):
     context.user_full_name = user.full_name
     context.user_email = user.email
     context.user_image = user.user_image 
+    print(context)

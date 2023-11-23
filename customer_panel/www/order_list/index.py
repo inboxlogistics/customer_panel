@@ -50,7 +50,7 @@ def get_delivery_dashboard_list():
             'delivery_date_and_preferred_timing': [">", "2023-10-01"]
         },
         fields = [
-            "name","end_user_name", "ecom_order_no", 
+            "name","end_user_name","end_user_phone_number",  "ecom_order_no", 
             "delivery_date_and_preferred_timing", "total_order_amount",
             "order_status"
         ]

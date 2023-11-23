@@ -235,6 +235,7 @@
                             <th>Order ID</th>
                             <!-- <th>Order No</th> -->
                             <th>Customer</th>
+                            <th>Mobile No</th>
                             <th>Delivery Date</th>
                             <th>Amount</th>
                             <th>Status</th>
@@ -248,6 +249,7 @@
                           <td><div class="form-check form-check-primary"><input type="checkbox" class="form-check-input"></td></div>
                           <td id="ecom_order_no">{{item.ecom_order_no}}</td>
                           <td id="customer">{{item.end_user_name}}</td>
+                          <td id="customer_mobile_no">{{item.end_user_phone_number}}</td>
                           <td id="delivery_date">{{item.delivery_date_and_preferred_timing}}</td>
                           <td id="total_order_amount">{{item.total_order_amount}}</td>
                           <td>
@@ -259,7 +261,7 @@
                                 <i class="mdi mdi-lead-pencil"></i>
                               </button>
                               <button type="button" class="btn btn-outline-secondary">
-                                <i class="mdi mdi-close"></i>
+                                <i class="mdi mdi-delete"></i>
                               </button>
                               <button type="button" class="btn btn-outline-secondary">
                                 <i class="mdi mdi-rotate-right"></i>
