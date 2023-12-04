@@ -4,6 +4,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="frappe">
+
+	
+		<meta property="og:type" content="article"><meta name="title" content="Products"><meta property="og:title" content="Products"><meta name="twitter:title" content="Products"><meta name="twitter:card" content="summary"><meta property="og:url" content="http://localhost:8002/Products"><meta name="url" content="http://localhost:8002/Products"><meta name="language" content="en">
     <!-- <style>
       .example-form {
         height: 2000px; /* Adjust the height as needed */
@@ -27,6 +33,68 @@
     <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
+
+    <script>
+    
+      $(function(){
+       $("#ItemCode").select2();
+      }); 
+     
+      $(function(){
+       $("#country_Code").select2();
+      }); 
+      
+     </script>
+         
+         <script type="text/javascript">
+     
+          var srNo = $("#tblData").children('tbody').length;
+         
+     
+             $(document).ready(function (){
+                 new_row();
+                 AddNewRow();
+               
+                 
+       
+             });
+          
+         
+         </script>
+         <script>
+         window.frappe = {};
+         frappe.ready_events = [];
+         frappe.ready = function(fn) {
+           frappe.ready_events.push(fn);
+            
+         window.dev_server = 1;
+         window.socketio_port = 9000;
+         window.show_language_picker = 0;
+             }
+             frappe.ready(function() {
+                     
+                     var _CheckLogin=0;
+                     frappe.call({
+                     method:"inbox_portal.www.my_payable.getItemCode",
+                     callback:function(r){
+                         //console.log(r.message);
+                         if(r)
+                         _CheckLogin=1;
+               console.log(r);
+                                 
+               
+                     }
+                 });
+                 setTimeout(function() {
+                 if(_CheckLogin==0)
+                 {
+                 window.location.href = "/#login"
+                          return;
+                 }
+             },700)
+             })
+        
+       </script>
   </head>
   <body>
     <div class="container-scroller">
@@ -224,7 +292,7 @@
                 <div class="card">
                   <div class="card-body">
                     <!-- <h4 class="card-title">New Order</h4> -->
-                    <form id="example-form" action="#">
+                    <form id="" action="#">
                       <div>
                         <h3>Contact</h3>
                         <section>
@@ -232,7 +300,7 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Customer Mobile No</label>
+                                <label class="col-sm-3 col-form-label" for="buyr_contact_num">Customer Mobile No</label>
                                 <div class="col-sm-9">
                                   <input type="text" id="buyr_contact_num" class="form-control" placeholder="Mobile No" required />
                                 </div>
@@ -240,7 +308,7 @@
                             </div>  
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Customer Name</label>
+                                <label class="col-sm-3 col-form-label" for="buyer_name">Customer Name</label>
                                 <div class="col-sm-9">
                                   <input type="text" id="buyer_name" class="form-control" placeholder="Name" required/>
                                 </div>
@@ -299,7 +367,7 @@
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Building No</label>
+                                <label class="col-sm-3 col-form-label" for="building_no">Building No</label>
                                 <div class="col-sm-9">
                                   <input type="text" id="building_no" class="form-control" />
                                 </div>
@@ -309,7 +377,7 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Street</label>
+                                <label class="col-sm-3 col-form-label" for="street">Street</label>
                                 <div class="col-sm-9">
                                   <input type="text" id="street" class="form-control" />
                                 </div>
@@ -317,7 +385,7 @@
                             </div>
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Zone No</label>
+                                <label class="col-sm-3 col-form-label" for="zone_num">Zone No</label>
                                 <div class="col-sm-9">
                                   <input type="text" id="zone_num" class="form-control" required />
                                 </div>
@@ -412,13 +480,9 @@
                           <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Delivery Instruction</label>
+                                <label class="col-sm-3 col-form-label" for="delivery_date">Delivery Date</label>
                                 <div class="col-sm-9">
-                                  <select class="form-control" id="delivery_instruction" style="width:100%">
-                                    <option></option>
-                                    <option value="Normal" selected>Don't Knock The Door</option>
-                                    
-                                  </select>
+                                  <input type="date" class="form-control" id="delivery_date" required>
                                 </div>
                               </div>
                             </div>
@@ -441,6 +505,18 @@
                                 <label class="col-sm-4 col-form-label express-delivery" style="padding-top: -6px;"> Do Your Customer Need Fast Delivery</label>
                                 <div class="form-check form-check-primary"><label class="form-check-label">
                                   <input type="checkbox" class="form-check-input"> &nbsp;&nbsp; <i class="input-helper"></i></label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Delivery Instruction</label>
+                                <div class="col-sm-9">
+                                  <select class="form-control" id="delivery_instruction" style="width:100%">
+                                    <option></option>
+                                    <option value="Normal" selected>Don't Knock The Door</option>
+                                    
+                                  </select>
                                 </div>
                               </div>
                             </div>
@@ -478,13 +554,12 @@
                                     <thead>
                                       <tr>
                                         <th>No.</th>
-                                        <th>TAG</th>
-                                        <th>Item Name</th>
                                         <th>Barcode</th>
+                                        <th>Item Name</th>
                                         <th>Qty</th>
-                                        <th>UOM</th>
                                         <th>Rate</th>
-                                        <th>Total</th>
+                                        <th>UOM</th>
+                                        <th>Item Code</th>
                                         <th>Vas</th>
                                         <th>Action</th>
                                       </tr>
@@ -494,48 +569,239 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <button type="button" class="btn btn-success btn-md" onclick="addRow()" style="margin-top:30px;">Add Row</button>
+                                <button type="button" class="btn btn-success btn-md" onclick="new_row();AddNewRow();" style="margin-top:30px;" value="Add Row" id="newrows">Add Row</button>
                               </div>
                             </div>
                           </div>
                           <script>
-                            function addRow() {
-                                var tableBody = document.getElementById("tbl_posts_body");
-                                var newRow = tableBody.insertRow(tableBody.rows.length);
-                                newRow.insertCell(0).innerHTML = tableBody.rows.length;
+                            // function addRow() {
+                            //     var tableBody = document.getElementById("tbl_posts_body");
+                            //     var newRow = tableBody.insertRow(tableBody.rows.length);
+                            //     newRow.insertCell(0).innerHTML = tableBody.rows.length;
                         
-                                for (var i = 1; i <= 8; i++) {
-                                    var cell = newRow.insertCell(i);
+                            //     for (var i = 1; i <= 7; i++) {
+                            //         var cell = newRow.insertCell(i);
     
-                                    var input = document.createElement("input");
-                                    input.type = "text";
-                                    input.className = "form-control";
-                                    cell.appendChild(input);
-                                }
+                            //         var input = document.createElement("input");
+                            //         input.type = "text";
+                            //         input.className = "form-control";
+                            //         cell.appendChild(input);
+                            //     }
                         
-                                var deleteButton = document.createElement("button");
-                                deleteButton.innerHTML = '<i class="mdi mdi-delete"></i>';
-                                deleteButton.className = "btn btn-danger btn-sm";
-                                deleteButton.onclick = function () {
-                                    deleteRow(newRow);
-                                };
+                            //     var deleteButton = document.createElement("button");
+                            //     deleteButton.innerHTML = '<i class="mdi mdi-delete"></i>';
+                            //     deleteButton.className = "btn btn-danger btn-sm";
+                            //     deleteButton.onclick = function () {
+                            //         deleteRow(newRow);
+                            //     };
                         
-                                var deleteCell = newRow.insertCell(9);
-                                deleteCell.appendChild(deleteButton);
-                            }
+                            //     var deleteCell = newRow.insertCell(8);
+                            //     deleteCell.appendChild(deleteButton);
+                            // }
                         
-                            function deleteRow(row) {
-                                var index = row.rowIndex;
-                                document.getElementById("tbl_posts").deleteRow(index);
-                                updateRowNumbers();
-                            }
+                            // function deleteRow(row) {
+                            //     var index = row.rowIndex;
+                            //     document.getElementById("tbl_posts").deleteRow(index);
+                            //     updateRowNumbers();
+                            // }
                         
-                            function updateRowNumbers() {
-                                var tableBody = document.getElementById("tbl_posts_body");
-                                for (var i = 0; i < tableBody.rows.length; i++) {
-                                    tableBody.rows[i].cells[0].innerHTML = i + 1;
-                                }
-                            }
+                            // function updateRowNumbers() {
+                            //     var tableBody = document.getElementById("tbl_posts_body");
+                            //     for (var i = 0; i < tableBody.rows.length; i++) {
+                            //         tableBody.rows[i].cells[0].innerHTML = i + 1;
+                            //     }
+                            // }
+                            function filter(id) {
+                                      var keyword = document.getElementById("filtertext"+id).value;
+                                      var select = document.getElementById("ItemCode"+id);
+                                      for (var i = 0; i < select.length; i++) {
+                                          var txt = select.options[i].text;
+                                          if (!txt.match(keyword)) {
+                                              $(select.options[i]).attr('disabled', 'disabled').hide();
+                                          } else {
+                                              $(select.options[i]).removeAttr('disabled').show();
+                                          }
+
+                                      }
+                                  }
+                            
+                                  function new_row() {
+
+                                          let options = '<option></option>'
+                                          var rowCount = $('#tbl_posts >tbody >tr').length;
+                                          rowCount = parseInt(rowCount) + 1
+                                          var totalRows = 0;
+                                          frappe.call({
+                                              method: "inbox_portal.www.my_payable.getItemCode",
+                                              callback: function (r) {
+                                                  //console.log(r.message);
+                                                  if (r) {
+                                                      console.log(r.message);
+                                                      let data = r.message;
+                                                      for (let i in data) {
+                                                          options += `<option value="${data[i]}">${data[i]}</option>`
+                                                      }
+
+
+                                                      $("#ItemCode" + rowCount).html(options);
+
+                                                      $(function () {
+                                                          $("#Item_Code" + rowCount).select2();
+                                                      });
+                                                  }
+                                              }
+
+                                          });
+                                          options = "";
+//  totalRows++;
+}
+        var  row_ID=1;
+          
+          function AddNewRow()
+          {
+            var rowCount1 = $('#tbl_posts >tbody >tr').length;
+  
+  
+            var srNo=parseInt(rowCount1)+1;
+                   
+            var addcontrols="<tr>"
+                                addcontrols+="<td>"+(srNo)+"</td>"
+                             //   addcontrols+= "<td><input ' type ='text' id='filtertext"+srNo+"'  onkeyup='filter("+srNo+")'/></td>"
+                                addcontrols+="<td><input type='text' name='barcode' onchange='getdatafun("+srNo+");' placeholder='barcode' id='barcode"+srNo+"'></td>"
+                                addcontrols+="<td><input type='text' name='description' placeholder='Item name' id='description"+srNo+"' ></td>"
+                                addcontrols+="<td><input type='number' name='qty' oninput='CalcaluteQty("+srNo+")' placeholder='QTY' id='qty"+srNo+"' ></td>"
+                                addcontrols+="<td><input type='number' name='Price' oninput='CalcaluteQty("+srNo+")' placeholder='Price' id='Price"+srNo+"' ></td>"
+                                addcontrols+="<td><input type='text' name='uom' placeholder='UOM'id='uom"+srNo+"' ></td>"
+                                addcontrols+="<td><select class='Item_Code' onchange='changeFunc("+srNo+");' id='ItemCode"+srNo+"'></select></td>"
+                                addcontrols+="<td style='display: none'><input type='text' name='ItemCode' placeholder='Item Code' id='ItemCodex"+srNo+"' ></td>"
+                                addcontrols+="<td><input type='checkbox' onchange='changeFunc("+srNo+");' class='form-check-input' id='ItemCode"+srNo+"' id='vas"+srNo+"'></td> "
+                                addcontrols+="<td><a style='color:red' class='btn mdi mdi-delete delete-record' onclick='deleteRow(this)' data-id='2'><i class='glyphicon glyphicon-trash'></i></a></td>"
+                                addcontrols+="<td style='display: none'><input type='number' name='Total_Price' placeholder='Total_Price' id='Total_Price"+srNo+"' ></td>"
+                                addcontrols+="<td style='display: none'><input type='number' name='Total_Volume' placeholder='Total_Volume' id='Total_Volume"+srNo+"' ></td>"
+                                addcontrols+="<td style='display: none'><input type='number' name='volume' placeholder='volume' id='volume"+srNo+"' ></td>"
+                                addcontrols+"</tr>";
+                            
+                                $("#tbl_posts tbody").append(addcontrols);
+                            
+                                srNo+=1; 
+            
+                              }
+          function changeFunc(index) {
+            var selectID = $("ItemCode" + index);
+            console.log(selectID.selector)
+            console.log("selectID.selector")
+            var selectBox = document.getElementById(selectID.selector);
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            console.log(selectedValue)
+            frappe.call({
+                // method: "inbox_portal.www.my_payable.selectItemCodeData",
+                method: "customer_panel.www.order_list.new_order.selectItemCodeData",
+                args: { "item_code": selectedValue },
+                callback: function (r) {
+                    console.log(r.message);
+                    mvolume = r.message[0][2];
+                     itemcodex = document.getElementById("ItemCodex" + index).value = selectedValue;
+                     description = document.getElementById("description" + index).value = r.message[0][0];
+                     qty = document.getElementById('qty' + index).value;
+                     Price = document.getElementById('Price' + index).value;
+                     uom = document.getElementById('uom' + index).value = r.message[0][1];
+                     volume = document.getElementById('barcode' + index).value = r.message[0][2];
+                     document.getElementById('volume' + index).value = r.message[0][3];
+                    // // volumeHistory=document.getElementById('volumeHistory'+index).value=mvolume;
+
+                }
+
+            });
+        }
+        function getdatafun(index){
+        var selectID=$('barcode'+index);
+        console.log(selectID.selector)
+       var selectBox = document.getElementById(selectID.selector);
+    var selectedValue = selectBox.value;
+       console.log(selectedValue);
+       frappe.call({
+        method:"inbox_portal.www.my_payable.selectBarCodeData",
+        args: {"barcode":selectedValue},
+        callback:function(r){
+            console.log(r.message);
+          //  optionItem= $('#ItemCode0 option[value="fg"]').attr('selected', true)
+          //  optionItem = document.getElementById('optionItem'+index).value=r.message[0][0];
+            var el = document.getElementById('ItemCode'+index);
+             var sel_value = el.options[el.selectedIndex].value=r.message[0][0];
+           // document.getElementById("textbox").value = sel_value;
+           ItemCode = document.getElementById('ItemCode'+index).option=r.message[0][0];
+           itemcodex = document.getElementById("ItemCodex"+index).value = r.message[0][0];
+            // mvolume=r.message[0][2];
+            description = document.getElementById("description"+index).value=r.message[0][1];
+            // qty = document.getElementById('qty'+index).value;
+            uom = document.getElementById('uom'+index).value = r.message[0][2];
+            volume= document.getElementById('barcode'+index).value=r.message[0][3];
+            document.getElementById('volume'+index).value=r.message[0][4]
+            // // volumeHistory=document.getElementById('volumeHistory'+index).value=mvolume;
+
+        }
+    
+      });
+    }
+
+
+   function CalcaluteQty(index){
+    var qty = document.getElementById("qty"+index).value
+    var Price = document.getElementById("Price"+index).value
+    var volume = document.getElementById("volume"+index).value
+    if(qty!=0 && Price!=0)
+   {
+    document.getElementById('Total_Price'+index).value=qty*Price;
+   }
+
+    if(qty!=0)
+    {
+        
+        document.getElementById('Total_Volume'+index).value=qty*volume;
+    }else{
+           
+            document.getElementById('Total_Volume'+index).value=volume;
+        }
+   }
+   function FilterItem(){
+            $("#Item_Code0").select2();
+        }    
+        
+        function deleteRow(r) {
+          
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("tbl_posts").deleteRow(i);
+      
+      srNo-=1; 
+    }
+function SaveOrder(){
+     buyer_name=document.getElementById('buyer_name').value;
+     buyr_contact_num=document.getElementById('buyr_contact_num').value;
+     zone_num=document.getElementById('zone_num').value;
+     street=document.getElementById('street').value;
+
+     delivery_date=document.getElementById('delivery_date').value;
+     locationid=document.getElementById('locationid').value;
+     notes=document.getElementById('notes').value;
+     building_no=document.getElementById('building_no').value;
+
+     const _table = document.getElementById('tbl_posts_body');
+                    
+//                   //  return my_liste
+    const arr = [..._table.rows].map(r => [...r.querySelectorAll('td input, th')].map(td => td.value))
+    console.log(arr)
+    frappe.call({
+        method:"customer_panel.www.order_list.new_order.save_order_delivery",
+         args:{"end_user_name":buyer_name,"end_user_phone_number":buyr_contact_num,
+         "delivery_date_and_preferred_timing":delivery_date,"notes":notes,"location":locationid,"building_no":building_no,"zone_no":zone_num,"street":street,"arr":arr},
+        callback:function(r){
+            console.log(r.message);
+            alert("Your Order saved in DB Sucssfuly")
+            window.location.href="/order_list";
+
+        }
+    });
+}
                         </script>
                         <div class="row">
                           <div class="col-md-6">
@@ -547,8 +813,9 @@
                             </div>
                           </div>
                         </div>
-                          <!-- <button type="submit" class="btn btn-primary"> Save </button>
-                          <button class="btn btn-light">Clear</button> -->
+                          <input type="button"  name="saveordre" onclick="SaveOrder()" value="Save" class="btn btn-primary" >
+                          <input type="button" class="btn btn-light" onclick="CancelOrder()" name="cancel" value="Cancel">
+                          <button class="btn btn-light" type="reset">CLEAR</button>
                         </section>
                         <!-- <h3>Payment</h3>
                         <section>

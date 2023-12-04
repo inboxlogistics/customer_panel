@@ -6,7 +6,7 @@
     bodyTag: "section",
     transitionEffect: "slideLeft",
     onFinished: function(event, currentIndex) {
-      alert("Submitted!");
+      alert("Submitted!!!!!!!!!!!!!!!!!!!!!");
     }
   });
   var validationForm = $("#example-validation-form");
@@ -37,7 +37,7 @@
       return validationForm.val();
     },
     onFinished: function(event, currentIndex) {
-      alert("Submitted!");
+      alert("Submitted!!!!!!!!!!!!!!!!!!!!!!!!");
     }
   });
   var verticalForm = $("#example-vertical-wizard");
@@ -47,7 +47,7 @@
     transitionEffect: "slideLeft",
     stepsOrientation: "vertical",
     onFinished: function(event, currentIndex) {
-      alert("Submitted!");
+      alert("Submitted!!!!!!!!!!!!!!!!");
     }
   });
 })(jQuery);
