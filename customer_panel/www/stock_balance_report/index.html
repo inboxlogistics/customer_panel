@@ -7,21 +7,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Customer Panel</title>
+    <title>Order List</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../assets/customer_panel/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../assets/customer_panel/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../assets/customer_panel/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/customer_panel/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="../assets/customer_panel/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../assets/customer_panel/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="../../assets/customer_panel/vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../assets/customer_panel/css/demo_1/style.css" />
+    <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../assets/customer_panel/images/favicon.png" />
+    <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -52,16 +51,6 @@
               <i class="mdi mdi-cart-outline menu-icon"></i>
               <span class="menu-title">Order List</span>
             </a>
-            <!-- <div class="collapse" id="page-layouts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/order_list.html">Order List</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/new_order.html">New Order</a>
-                </li>
-              </ul>
-            </div> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/product_list">
@@ -110,7 +99,7 @@
       </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
+        <!-- partial:../../partials/_settings-panel.html -->
         <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close mdi mdi-close"></i>
@@ -123,15 +112,14 @@
           </div>
         </div>
         <!-- partial -->
-        <!-- partial:partials/_navbar.html -->
+        <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
             <button class="navbar-toggler navbar-toggler align-items-center" type="button" data-toggle="minimize">
               <i class="mdi mdi-menu"></i>
             </button>
             <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-              <!-- <a class="navbar-brand brand-logo" href="customer_panel.html"><img src="../assets/customer_panel/images/logo.svg" alt="logo" /></a> -->
-              <a class="navbar-brand brand-logo-mini" href="customer_panel.html"><img src="../assets/customer_panel/images/logo-mini.svg" alt="logo" /></a>
+            
             </div>
             <ul class="navbar-nav navbar-nav-right ml-lg-auto">
               <li class="nav-item nav-search border-0 mr-1 mr-md-3 mr-lg-5 d-none d-md-flex">
@@ -226,154 +214,46 @@
         </nav>
         <!-- partial -->
         <div class="main-panel">
-          <div class="content-wrapper pb-0">
-            <div class="page-header">
-              <h1 class="mb-0">Hello {{ customer_name }}</h1>
-            </div>
-            <div class="page-header">
-              <h2 class="mb-0">All Time Report</h2>
-            </div>
-            <div class="row">
-              
-              <div class="col-sm-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi-cart-plus"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light"> Orders</h4>
-                        <h1 class="mb-0">{{ total_orders }}</h1>
-                      </div>
-                    </div>
+          <div class="content-wrapper">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Stock Balance</h4>
+                <!-- <div class="row">
+                  <div class="col-6">
+                    From <input type="date" class="form-control-sm" id="from_dater"></input> &nbsp;&nbsp;&nbsp;
+                    To <input type="date" class="form-control-sm" id="to_date"></input>
                   </div>
-                </div>
-              </div>
-              <div class="col-sm-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi-car"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light">Delivered</h4>
-                        <h1 class="mb-0 d-flex align-items-center"> {{ total_delivered }}
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi-tab"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light"> Open Ticlets </h4>
-                        <h1 class="mb-0 d-flex align-items-center"> {{ 3 }} 
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="page-header">
-              <h2 class="mb-0">Today's Info</h2>
-            </div>
-            <div class="row">
-              <div class="col-sm-3 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi-cart-plus"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light"> Orders</h4>
-                        <h1 class="mb-0">{{ new_orders_today }}</h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi-car"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light"> Delivered </h4>
-                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_to_be_dispatched_today }} 
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi mdi-clock-alert"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light">Orders To Be Prepared</h4>
-                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_to_be_picked_today }}
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi mdi mdi-directions"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light"> Orders To Be Dispatched </h4>
-                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_to_be_dispatched_today }} 
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body large-card">
-                    <div class="d-xl-flex align-items-center mb-3">
-                      <div class="icon-bg">
-                        <i class="mdi di mdi-cart-off"></i>
-                      </div>
-                      <div>
-                        <h4 class="mb-2 font-weight-light"> Orders Returned </h4>
-                        <h1 class="mb-0 d-flex align-items-center"> {{ orders_returned_today }} 
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title"></h4>
-                    <div class="mapael-container">
-                      <div class="map" id="map">Alternative content</div>
+                </div> -->
+                <br>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="table-responsive">
+                      <table id="order-listing" class="table">
+                        <thead>
+                          <tr>
+                            <th>Barcode</th>
+                            <th>Item Code</th>
+                            <th>Brand</th>
+                            <th>Item</th>
+                            <th>Total Volume</th>
+                            <th>UOM</th>
+                            <th>Balance Qty</th>
+                          </tr>
+                        </thead>
+                        <tbody id="table_data">
+                        {% for item in data %}
+                        <tr id="data">
+                          <td >{{item.barcode or  item.item_code}}</td>
+                          <td >{{item.item_code}}</td>
+                          <td >{{item.brand or  " "}}</td>
+                          <td >{{item.item_name}}</td>
+                          <td >{{item.volume_cf}}</td>
+                          <td >{{item.stock_uom}}</td>
+                          <td >{{item.actual_qty}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -381,7 +261,7 @@
             </div>
           </div>
           <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
+          <!-- partial:../../partials/_footer.html -->
           
           <!-- partial -->
         </div>
@@ -391,59 +271,33 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="../assets/customer_panel/vendors/chart.js/Chart.min.js"></script>
-    <script src="../assets/customer_panel/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-    <script src="../assets/customer_panel/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="../assets/customer_panel/vendors/chartist/chartist.min.js"></script>
-    <script src="../assets/customer_panel/vendors/flot/jquery.flot.js"></script>
-    <script src="../assets/customer_panel/vendors/flot/jquery.flot.resize.js"></script>
-    <script src="../assets/customer_panel/vendors/flot/jquery.flot.categories.js"></script>
-    <script src="../assets/customer_panel/vendors/flot/jquery.flot.fillbetween.js"></script>
-    <script src="../assets/customer_panel/vendors/flot/jquery.flot.stack.js"></script>
+    <script src="../../assets/customer_panel/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../../assets/customer_panel/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="../assets/customer_panel/js/off-canvas.js"></script>
-    <script src="../assets/customer_panel/js/hoverable-collapse.js"></script>
-    <script src="../assets/customer_panel/js/misc.js"></script>
-    <script src="../assets/customer_panel/js/settings.js"></script>
-    <script src="../assets/customer_panel/js/todolist.js"></script>
+    <script src="../../assets/customer_panel/js/off-canvas.js"></script>
+    <script src="../../assets/customer_panel/js/hoverable-collapse.js"></script>
+    <script src="../../assets/customer_panel/js/misc.js"></script>
+    <script src="../../assets/customer_panel/js/settings.js"></script>
+    <script src="../../assets/customer_panel/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="../assets/customer_panel/js/dashboard.js"></script>
+    <script src="../../assets/customer_panel/js/data-table.js"></script>
     <!-- End custom js for this page -->
-    <script src="../assets/customer_panel/vendors/raphael/raphael.min.js"></script>
-    <script src="../assets/customer_panel/vendors/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="../assets/customer_panel/vendors/jquery-mapael/world_countries.min.js"></script>
-    <script src="../assets/customer_panel/vendors/jquery-mapael/usa_states.min.js"></script>
-    <script src="../assets/customer_panel/vendors/jquery-mapael/france_departments.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page -->
-    <script src="../assets/customer_panel/js/mapael.js"></script>
-    <script src="../assets/customer_panel/js/mapael_example_1.js"></script>
   </body>
   <script>
     window.frappe = {};
     frappe.ready_events = []
     frappe.ready = function(fn){
-      console.log("---customer panel---")
-      //$('.navbar > .navbar-light > .navbar-expand-lg').hide()
+      console.log("--- order list read ---")
       $('.navbar-expand-lg').hide()
       $('.footer-section').hide()
-      // function initMap() {
-      //   map = new google.maps.Map(document.getElementById('map'), {
-      //     center: {
-      //       lat: -34.397,
-      //       lng: 150.644
-      //     },
-      //     zoom: 8
-      //   });
-      // };
     }
     window.dev_server = 1
-    window.socketio_port = 9002
+    window.socketio_port = 9001
   </script>
 </html>
 {% endblock %}

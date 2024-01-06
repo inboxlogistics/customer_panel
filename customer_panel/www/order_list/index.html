@@ -3,55 +3,57 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Order List</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="{{ user_image }}" alt="profile" />
-                <span class="login-status online"></span>
-                <!--change to offline or busy as needed-->
-              </div>
-              <div class="nav-profile-text d-flex flex-column pr-3">
-                <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
-                <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="customer_panel.html">
-              <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="/order_list">
-              <i class="mdi mdi-cart-outline menu-icon"></i>
-              <span class="menu-title">Order List</span>
-            </a>
-            <!-- <div class="collapse" id="page-layouts">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Order List</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="nav-profile-image">
+              <img src="{{ user_image }}" alt="profile" />
+              <span class="login-status online"></span>
+              <!--change to offline or busy as needed-->
+            </div>
+            <div class="nav-profile-text d-flex flex-column pr-3">
+              <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
+              <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="customer_panel.html">
+            <i class="mdi mdi-home menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/order_list">
+            <i class="mdi mdi-cart-outline menu-icon"></i>
+            <span class="menu-title">Order List</span>
+          </a>
+          <!-- <div class="collapse" id="page-layouts">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
                   <a class="nav-link" href="pages/order_list.html">Order List</a>
@@ -61,20 +63,32 @@
                 </li>
               </ul>
             </div> -->
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/product_list">
-              <i class="mdi mdi-image-filter-frames menu-icon "></i>
-              <span class="menu-title">Product List</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/tickets">
-              <i class="mdi mdi-assistant menu-icon "></i>
-              <span class="menu-title">Tickets</span>
-            </a>
-          </li>
-          <!-- <li class="nav-item sidebar-actions">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/product_list">
+            <i class="mdi mdi-image-filter-frames menu-icon "></i>
+            <span class="menu-title">Product List</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stock_entry_list">
+            <i class="mdi mdi-image-filter-frames menu-icon "></i>
+            <span class="menu-title">Stock Shipment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stock_balance_report">
+            <i class="mdi mdi-image-filter-frames menu-icon "></i>
+            <span class="menu-title">Stock Balance</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tickets">
+            <i class="mdi mdi-assistant menu-icon "></i>
+            <span class="menu-title">Tickets</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item sidebar-actions">
             <div class="sidebar-action-btn-wrap">
               <div class="form-check">
                 <label class="form-check-label">
@@ -93,269 +107,328 @@
               </ul>
             </div>
           </li> -->
-        </ul>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_settings-panel.html -->
+      <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
+      <div id="theme-settings" class="settings-panel">
+        <i class="settings-close mdi mdi-close"></i>
+        <p class="settings-heading">SIDEBAR SKINS</p>
+        <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+          <div class="img-ss rounded-circle bg-light border mr-3"></div>Default
+        </div>
+        <div class="sidebar-bg-options" id="sidebar-dark-theme">
+          <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+          <button class="navbar-toggler navbar-toggler align-items-center" type="button" data-toggle="minimize">
+            <i class="mdi mdi-menu"></i>
+          </button>
+          <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+
+          </div>
+          <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+            <li class="nav-item nav-search border-0 mr-1 mr-md-3 mr-lg-5 d-none d-md-flex">
+              <form class="nav-link form-inline mt-2 mt-md-0">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="mdi mdi-magnify"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search" />
+                </div>
+              </form>
+            </li>
+            <li class="nav-item dropdown dropleft">
+              <a class="nav-link" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-bell-outline"></i>
+              </a>
+              <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list dropdown-menu-right"
+                aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0 ">Notifications</h6>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="mb-0"> Dany Miles <span class="text-small text-secondary">commented on your photo</span>
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="mb-0"> James <span class="text-small text-secondary">posted a photo on your wall</span>
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="mb-0"> Alex <span class="text-small text-secondary">just mentioned you in his post</span>
+                    </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 ">View all activities</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="messageDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-email-outline"></i>
+              </a>
+              <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list"
+                aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0 ">Messages</h6>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-success">Request</span>
+                    <p class="text-small text-secondary ellipsis mb-0"> Suport needed for user123 </p>
+                  </div>
+                  <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-warning">Invoices</span>
+                    <p class="text-small text-secondary ellipsis mb-0"> Invoice for order is mailed </p>
+                  </div>
+                  <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-danger">Projects</span>
+                    <p class="text-small text-secondary ellipsis mb-0"> New project will start tomorrow </p>
+                  </div>
+                  <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
+                </a>
+                <h6 class="p-3 mb-0 ">See all activity</h6>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <i class="mdi mdi-home-outline"></i>
+              </a>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
       </nav>
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_settings-panel.html -->
-        <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close mdi mdi-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
-            <div class="img-ss rounded-circle bg-light border mr-3"></div>Default
-          </div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme">
-            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
-          </div>
-        </div>
-        <!-- partial -->
-        <!-- partial:../../partials/_navbar.html -->
-        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
-          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
-            <button class="navbar-toggler navbar-toggler align-items-center" type="button" data-toggle="minimize">
-              <i class="mdi mdi-menu"></i>
-            </button>
-            <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-            
-            </div>
-            <ul class="navbar-nav navbar-nav-right ml-lg-auto">
-              <li class="nav-item nav-search border-0 mr-1 mr-md-3 mr-lg-5 d-none d-md-flex">
-                <form class="nav-link form-inline mt-2 mt-md-0">
-                  <div class="input-group">
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="mdi mdi-magnify"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search" />
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-12 col-md-2">
+                  <div class="dataTables_length">
+                    <h4 class="card-title">Orders</h4><br>
                   </div>
-                </form>
-              </li>
-              <li class="nav-item dropdown dropleft">
-                <a class="nav-link" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-bell-outline"></i>
-                </a>
-                <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list dropdown-menu-right" aria-labelledby="notificationDropdown">
-                  <h6 class="p-3 mb-0 ">Notifications</h6>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> Dany Miles <span class="text-small text-secondary">commented on your photo</span>
-                      </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> James <span class="text-small text-secondary">posted a photo on your wall</span>
-                      </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> Alex <span class="text-small text-secondary">just mentioned you in his post</span>
-                      </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 ">View all activities</p>
                 </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="messageDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-email-outline"></i>
-                </a>
-                <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
-                  <h6 class="p-3 mb-0 ">Messages</h6>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-success">Request</span>
-                      <p class="text-small text-secondary ellipsis mb-0"> Suport needed for user123 </p>
-                    </div>
-                    <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-warning">Invoices</span>
-                      <p class="text-small text-secondary ellipsis mb-0"> Invoice for order is mailed </p>
-                    </div>
-                    <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-danger">Projects</span>
-                      <p class="text-small text-secondary ellipsis mb-0"> New project will start tomorrow </p>
-                    </div>
-                    <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
-                  </a>
-                  <h6 class="p-3 mb-0 ">See all activity</h6>
+                <div class="col-sm-12 col-md-6">
+                  From <input type="date" class="form-control-sm" id="from_dater"></input> &nbsp;&nbsp;&nbsp;
+                  To <input type="date" class="form-control-sm" id="to_date"></input>
                 </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">
-                  <i class="mdi mdi-home-outline"></i>
-                </a>
-              </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-              <span class="mdi mdi-menu"></span>
-            </button>
-          </div>
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Orders</h4><br>
-                <div class="row">
-                  <div class="col-6">
-                    From <input type="date" class="form-control-sm" id="from_dater"></input> &nbsp;&nbsp;&nbsp;
-                    To <input type="date" class="form-control-sm" id="to_date"></input>
-                  </div>
-                  <div class="col-6">
-                    <a href="/order_list/new_order" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New Order</a>
-                  </div>      
+                <div class="col-sm-12 col-md-4" align="right">
+                  <a href="/order_list/new_order" class="btn btn-success btn-md float-right"
+                    style="margin-bottom: 15px;">New Order</a>
+                  </button>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="table-responsive">
-                      <table id="order-listing" class="table">
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Order ID</th>
-                            <!-- <th>Order No</th> -->
-                            <th>Customer</th>
-                            <th>Mobile No</th>
-                            <th>Delivery Date</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                          </tr>
-                        </thead>
-                        <tbody id="table_data">
-                          <!-- {{ data }} -->
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="table-responsive">
+                    <table id="order-listing" class="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="form-check form-check-primary"><input type="checkbox" class="form-check-input"
+                                id="table_check">
+                          </th>
+                          <th>Order ID</th>
+                          <!-- <th>Order No</th> -->
+                          <th>Customer</th>
+                          <th>Mobile No</th>
+                          <th>Delivery Date</th>
+                          <th>Amount</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table_data">
+                        <!-- {{ data }} -->
                         {% for item in data %}
                         <tr id="data">
-                          <td><div class="form-check form-check-primary"><input type="checkbox" class="form-check-input"></td></div>
-                          <td id="ecom_order_no">{{item.ecom_order_no}}</td>
-                          <td id="customer">{{item.end_user_name}}</td>
-                          <td id="customer_mobile_no">{{item.end_user_phone_number}}</td>
-                          <td id="delivery_date">{{item.delivery_date_and_preferred_timing}}</td>
-                          <td id="total_order_amount">{{item.total_order_amount}}</td>
                           <td>
-                            <label class="badge badge-info">{{item.order_status}}</label>
+                            <div class="form-check form-check-primary"><input type="checkbox" class="form-check-input">
                           </td>
-                          <td>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                              <button type="button" class="btn btn-outline-secondary">
-                                <i class="mdi mdi-lead-pencil"></i>
-                              </button>
-                              <button type="button" class="btn btn-outline-secondary">
-                                <i class="mdi mdi-delete"></i>
-                              </button>
-                              <button type="button" class="btn btn-outline-secondary">
-                                <i class="mdi mdi-rotate-right"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
+                  <td id="ecom_order_no"><a href="/order_list/order?id={{item.name}}">{{item.ecom_order_no}}</a></td>
+                  <td id="customer">{{item.end_user_name}}</td>
+                  <td id="customer_mobile_no">{{item.end_user_phone_number}}</td>
+                  <td id="delivery_date">{{item.delivery_date_and_preferred_timing}}</td>
+                  <td id="total_order_amount">{{item.total_order_amount}}</td>
+                  <td>
+                    <label class="badge badge-info">{{item.order_status}}</label>
+                  </td>
+                  <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-outline-secondary">
+                        <i class="mdi mdi-lead-pencil"></i>
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary">
+                        <i class="mdi mdi-delete"></i>
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary">
+                        <i class="mdi mdi-rotate-right"></i>
+                      </button>
+                    </div>
+                  </td>
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          
-          <!-- partial -->
         </div>
-        <!-- main-panel ends -->
       </div>
-      <!-- page-body-wrapper ends -->
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+
+      <!-- partial -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="../../assets/customer_panel/vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="../../assets/customer_panel/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../assets/customer_panel/js/off-canvas.js"></script>
-    <script src="../../assets/customer_panel/js/hoverable-collapse.js"></script>
-    <script src="../../assets/customer_panel/js/misc.js"></script>
-    <script src="../../assets/customer_panel/js/settings.js"></script>
-    <script src="../../assets/customer_panel/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../../assets/customer_panel/js/data-table.js"></script>
-    <!-- End custom js for this page -->
-  </body>
-  <script>
-    window.frappe = {};
-    frappe.ready_events = []
-    frappe.ready = function(fn){
-      console.log("--- order list read ---")
-      $('.navbar-expand-lg').hide()
-      $('.footer-section').hide()
-      //get_order_list();
-    }
-    window.dev_server = 1
-    window.socketio_port = 9001
-    //function get_order_list(filter_only) {
-      //console.log('----calling get_order_list')
-      // let filter_data = [];'
-      //method: "customer_panel.api.get_delivery_dashboard_list",'
-    //   frappe.call({
-    //     method: "customer_panel.www.order_list.get_delivery_dashboard_list",
-    //     args: { },
-    //     callback: function (r) {  
-    //       console.log("Call back method")
-    //       if(r){
-    //         let html = '';
-    //         console.log("order list");
-    //         console.log(r.message);
-    //         let data = r.message || [];
-    //         //let ordertotal= data.length;
-    //         for(let i in data){
-    //           console.log(data[i].name)
-    //           html +=  `
-    //             <tr id="data">
-    //               <td id="ecom_order_no">${data[i].ecom_order_no}</td>
-    //               <td id="customer">${data[i].end_user_name}</td>
-    //               <td id="delivery_date">${data[i].delivery_date_and_preferred_timing}</td>
-    //               <td id="total_order_amount">${data[i].total_order_amount}</td>
-    //               <td>
-    //                 <label class="badge badge-info">${data[i].order_status}</label>
-    //               </td>
-    //               <td>
-    //                 <button class="btn btn-outline-primary"> View </button>
-    //               </td>
-    //           `;
-    //           //$("table_data").html(html);
-    //         }
-    //       }
-    //       else{
-    //         console.log('No Data')
-    //       }
-    //     }
-    //   });
-    //}
-  </script>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="../../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="../../assets/customer_panel/vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="../../assets/customer_panel/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../assets/customer_panel/js/off-canvas.js"></script>
+  <script src="../../assets/customer_panel/js/hoverable-collapse.js"></script>
+  <script src="../../assets/customer_panel/js/misc.js"></script>
+  <script src="../../assets/customer_panel/js/settings.js"></script>
+  <script src="../../assets/customer_panel/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="../../assets/customer_panel/js/data-table.js"></script>
+  <!-- End custom js for this page -->
+</body>
+<script>
+  window.frappe = {};
+  frappe.ready_events = []
+  frappe.ready = function (fn) {
+    console.log("--- order list read ---")
+    $('.navbar-expand-lg').hide()
+    $('.footer-section').hide()
+    //get_order_list();
+  }
+  window.dev_server = 1
+  window.socketio_port = 9001
+  //function get_order_list(filter_only) {
+  //console.log('----calling get_order_list')
+  // let filter_data = [];'
+  //method: "customer_panel.api.get_delivery_dashboard_list",'
+  //   frappe.call({
+  //     method: "customer_panel.www.order_list.get_delivery_dashboard_list",
+  //     args: { },
+  //     callback: function (r) {
+  //       console.log("Call back method")
+  //       if(r){
+  //         let html = '';
+  //         console.log("order list");
+  //         console.log(r.message);
+  //         let data = r.message || [];
+  //         //let ordertotal= data.length;
+  //         for(let i in data){
+  //           console.log(data[i].name)
+  //           html +=  `
+  //             <tr id="data">
+  //               <td id="ecom_order_no">${data[i].ecom_order_no}</td>
+  //               <td id="customer">${data[i].end_user_name}</td>
+  //               <td id="delivery_date">${data[i].delivery_date_and_preferred_timing}</td>
+  //               <td id="total_order_amount">${data[i].total_order_amount}</td>
+  //               <td>
+  //                 <label class="badge badge-info">${data[i].order_status}</label>
+  //               </td>
+  //               <td>
+  //                 <button class="btn btn-outline-primary"> View </button>
+  //               </td>
+  //           `;
+  //           //$("table_data").html(html);
+  //         }
+  //       }
+  //       else{
+  //         console.log('No Data')
+  //       }
+  //     }
+  //   });
+  //}
+</script>
+<script>
+  $(document).ready(function () {
+    const today_date = getTodayDate();
+    $('#from_dater').val(`${today_date}`)
+    $('#to_date').val(`${today_date}`)
+
+    $('#from_dater').change((e) => {
+      const toDate = $('#to_date').val();
+      if (e.target.value < toDate) {
+        frappe.call({
+          method: "customer_panel.www.order_list.index.get_delivery_dashboard_list",
+          args: { from_date: e.target.value, to_date: toDate }
+        }).then(resp => {
+          $('#table_data')[0].innerHTML=''
+          resp.message.map(item => {
+            
+          })
+        })
+      }
+      else {
+        alert('To Date should be less than From Date')
+      }
+    })
+
+
+    $('#table_check').on('click', function () {
+      if ($("#table_check").is(":checked")) {
+        $('input:checkbox:visible').prop('checked', true)
+      }
+      else {
+        $('input:checkbox:visible').prop('checked', false)
+      }
+    })
+  })
+
+  function getTodayDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+</script>
+
 </html>
 {% endblock %}

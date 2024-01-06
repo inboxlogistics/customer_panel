@@ -1,0 +1,70 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item nav-profile">
+        <a href="#" class="nav-link">
+          <div class="nav-profile-image">
+            <img src="{{ user_image }}" alt="profile" />
+            <span class="login-status online"></span>
+            <!--change to offline or busy as needed-->
+          </div>
+          <div class="nav-profile-text d-flex flex-column pr-3">
+            <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
+            <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="customer_panel.html">
+          <i class="mdi mdi-home menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="/order_list">
+          <i class="mdi mdi-cart-outline menu-icon"></i>
+          <span class="menu-title">Order List</span>
+        </a>
+        <!-- <div class="collapse" id="page-layouts">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="pages/order_list.html">Order List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/new_order.html">New Order</a>
+            </li>
+          </ul>
+        </div> -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product_list">
+          <i class="mdi mdi-image-filter-frames menu-icon "></i>
+          <span class="menu-title">Product List</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tickets">
+          <i class="mdi mdi-assistant menu-icon "></i>
+          <span class="menu-title">Tickets</span>
+        </a>
+      </li>
+      <!-- <li class="nav-item sidebar-actions">
+        <div class="sidebar-action-btn-wrap">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input darkThemeBtn" /> Dark Mode </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input fullscreen-button" /> Fluid Container </label>
+          </div>
+        </div>
+        <div class="nav-link">
+          <ul class="pl-0">
+            <li>
+              <a href="https://themeforest.net/item/aqua-ui-bootstrap-html-dashboard-template/27549258" class="btn btn-danger mt-3">Purchase now</a>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+    </ul>
+  </nav>

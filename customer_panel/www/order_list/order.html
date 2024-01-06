@@ -75,6 +75,18 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/stock_entry_list">
+              <i class="mdi mdi-image-filter-frames menu-icon "></i>
+              <span class="menu-title">Stock Shipment</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/stock_balance_report">
+              <i class="mdi mdi-image-filter-frames menu-icon "></i>
+              <span class="menu-title">Stock Balance</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/tickets">
               <i class="mdi mdi-assistant menu-icon "></i>
               <span class="menu-title">Tickets</span>
@@ -474,10 +486,10 @@
                               <div class="card-body">
                                 <h4 class="card-title">Delivery Order Item</h4>
                                 <div class="table-responsive">
-                                  <table class="table table-bordered" id="tbl_posts">
+                                  <table class="table table-bordered" id="tbl_order_item">
                                     <thead>
                                       <tr>
-                                        <th>No.</th>
+                                        <th><Sl class="No"></Sl></th>
                                         <th>TAG</th>
                                         <th>Item Name</th>
                                         <th>Barcode</th>
@@ -489,18 +501,18 @@
                                         <th>Action</th>
                                       </tr>
                                     </thead>
-                                    <tbody id="tbl_posts_body">
+                                    <tbody id="tbl_order_item_body">
                                       
                                     </tbody>
                                   </table>
                                 </div>
-                                <button type="button" class="btn btn-success btn-md" onclick="addRow()" style="margin-top:30px;">Add Row</button>
+                                <button type="button" class="btn btn-success btn-md" onclick="" style="margin-top:30px;">Add Row</button>
                               </div>
                             </div>
                           </div>
                           <script>
                             function addRow() {
-                                var tableBody = document.getElementById("tbl_posts_body");
+                                var tableBody = document.getElementById("tbl_order_item_body");
                                 var newRow = tableBody.insertRow(tableBody.rows.length);
                                 newRow.insertCell(0).innerHTML = tableBody.rows.length;
                         
@@ -526,12 +538,12 @@
                         
                             function deleteRow(row) {
                                 var index = row.rowIndex;
-                                document.getElementById("tbl_posts").deleteRow(index);
+                                document.getElementById("tbl_order_item").deleteRow(index);
                                 updateRowNumbers();
                             }
                         
                             function updateRowNumbers() {
-                                var tableBody = document.getElementById("tbl_posts_body");
+                                var tableBody = document.getElementById("tbl_order_item_body");
                                 for (var i = 0; i < tableBody.rows.length; i++) {
                                     tableBody.rows[i].cells[0].innerHTML = i + 1;
                                 }
@@ -604,7 +616,6 @@
     window.frappe = {};
     frappe.ready_events = []
     frappe.ready = function(fn){
-      console.log("---new order---")
       // $(".wizard > .steps").hide()
       $(".wizard > .content > .body").css('position', 'relative')
       $(".col-form-label > .express-delivery").css('padding-top', '0px')
@@ -612,6 +623,76 @@
       $(".col-form-label").css("padding-top", "3px");
       $('.navbar-expand-lg').hide()
       $('.footer-section').hide()
+
+      // new_row();
+      AddNewRow();
+      
+      let _CheckLogin=0;
+      // frappe.call({
+      //   method:"inbox_portal.www.my_payable.getItemCode",
+      //   callback:function(r){
+      //     //console.log(r.message);
+      //     if(r)
+      //       _CheckLogin=1;
+      //     console.log(r)
+      //   }
+      // });
+      // setTimeout(function() {
+      //   if(_CheckLogin==0)
+      //     {
+      //       window.location.href = "/#login"
+      //       return;
+      //     }
+      // },700)
+      function AddNewRow(){
+        let rowCount = $('#tbl_order_item >tbody >tr').length;
+        let srNo=parseInt(rowCount) + 1;
+        let addcontrols="<tr>"
+        addcontrols+="<td>"+(srNo)+"</td>"
+        //   addcontrols+= "<td><input ' type ='text' id='filtertext"+srNo+"'  onkeyup='filter("+srNo+")'/></td>"
+        addcontrols+="<td><select class='Item_Code' onchange='changeFunc("+srNo+");' id='ItemCode"+srNo+"'></select></td>"
+        addcontrols+="<td><input type='text' name='description' placeholder='Item name' id='description"+srNo+"' ></td>"
+        addcontrols+="<td><input type='text' name='barcode' onchange='getdatafun("+srNo+");' placeholder='barcode' id='barcode"+srNo+"'></td>"
+        addcontrols+="<td><input type='number' name='qty' oninput='CalcaluteQty("+srNo+")' placeholder='QTY' id='qty"+srNo+"' ></td>"
+        addcontrols+="<td><input type='text' name='uom' placeholder='UOM'id='uom"+srNo+"' ></td>"
+        addcontrols+="<td><input type='number' name='Price' oninput='CalcaluteQty("+srNo+")' placeholder='Price' id='Price"+srNo+"' ></td>"
+        addcontrols+="<td><input type='text' name='Total_Price' placeholder='Total_Price' id='Total_Price"+srNo+"' ></td>"
+        addcontrols+="<td><input type='checkbox' onchange='changeFunc("+srNo+");' class='form-check-input' id='ItemCode"+srNo+"' id='vas"+srNo+"'></td> "
+        addcontrols+="<td><a style='color:red' class='btn btn-xs delete-record' onclick='deleteRow(this)' data-id='2'><i class='glyphicon glyphicon-trash'></i></a></td>"
+        // addcontrols+="<td style='display: none'><input type='number' name='Total_Price' placeholder='Total_Price' id='Total_Price"+srNo+"' ></td>"
+        // addcontrols+="<td style='display: none'><input type='number' name='Total_Volume' placeholder='Total_Volume' id='Total_Volume"+srNo+"' ></td>"
+        // addcontrols+="<td style='display: none'><input type='number' name='volume' placeholder='volume' id='volume"+srNo+"' ></td>"
+        addcontrols+"</tr>";
+    
+        $("#tbl_order_item tbody").append(addcontrols);
+    
+        srNo+=1; 
+        
+      }
+      function new_row() {
+        let options = '<option></option>'
+        let rowCount = $('#tbl_order_item >tbody >tr').length;
+        rowCount = parseInt(rowCount) + 1
+        var totalRows = 0;
+        frappe.call({
+            method: "inbox_portal.www.my_payable.getItemCode",
+            callback: function (r) {
+                //console.log(r.message);
+                if (r) {
+                    console.log(r.message);
+                    let data = r.message;
+                    for (let i in data) {
+                        options += `<option value="${data[i]}">${data[i]}</option>`
+                    }
+                    $("#ItemCode" + rowCount).html(options);
+                    $(function () {
+                      $("#Item_Code" + rowCount).select2();
+                    });
+                }
+            }
+        });
+        options = "";
+      }
     }
     window.dev_server = 1
     window.socketio_port = 9002

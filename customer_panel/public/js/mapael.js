@@ -1,4 +1,5 @@
 $(function() {
+  console.log("--calling mapael function")
   'use strict';
   if ($(".mapael-container").length) {
     $(".mapael-container").mapael({
