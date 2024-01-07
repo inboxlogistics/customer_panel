@@ -3,61 +3,63 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- <style>
+
+<head>
+  <!-- <style>
       .example-form {
         height: 2000px; /* Adjust the height as needed */
       }     
     </style> -->
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>New Order</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/select2/select2.min.css" />
-    <link rel="stylesheet" href="../../assets/customer_panel/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" />
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:../../partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="{{ user_image }}" alt="profile" />
-                <span class="login-status online"></span>
-                <!--change to offline or busy as needed-->
-              </div>
-              <div class="nav-profile-text d-flex flex-column pr-3">
-                <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
-                <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/customer_panel.html">
-              <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="/order_list">
-              <i class="mdi mdi-cart-outline menu-icon"></i>
-              <span class="menu-title">Order List</span>
-            </a>
-            <!-- <div class="collapse" id="page-layouts">
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>New Order</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/select2/select2.min.css" />
+  <link rel="stylesheet" href="../../assets/customer_panel/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" />
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="nav-profile-image">
+              <img src="{{ user_image }}" alt="profile" />
+              <span class="login-status online"></span>
+              <!--change to offline or busy as needed-->
+            </div>
+            <div class="nav-profile-text d-flex flex-column pr-3">
+              <span class="font-weight-medium mb-2">{{ user_full_name }}</span>
+              <span class="font-weight-normal text-secondary"> {{ user_email }} </span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/customer_panel.html">
+            <i class="mdi mdi-home menu-icon"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/order_list">
+            <i class="mdi mdi-cart-outline menu-icon"></i>
+            <span class="menu-title">Order List</span>
+          </a>
+          <!-- <div class="collapse" id="page-layouts">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
                   <a class="nav-link" href="pages/order_list.html">Order List</a>
@@ -67,32 +69,32 @@
                 </li>
               </ul>
             </div> -->
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/product_list">
-              <i class="mdi mdi-image-filter-frames menu-icon "></i>
-              <span class="menu-title">Product List</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/stock_entry_list">
-              <i class="mdi mdi-image-filter-frames menu-icon "></i>
-              <span class="menu-title">Stock Shipment</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/stock_balance_report">
-              <i class="mdi mdi-image-filter-frames menu-icon "></i>
-              <span class="menu-title">Stock Balance</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/tickets">
-              <i class="mdi mdi-assistant menu-icon "></i>
-              <span class="menu-title">Tickets</span>
-            </a>
-          </li>
-          <!-- <li class="nav-item sidebar-actions">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/product_list">
+            <i class="mdi mdi-image-filter-frames menu-icon "></i>
+            <span class="menu-title">Product List</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stock_entry_list">
+            <i class="mdi mdi-image-filter-frames menu-icon "></i>
+            <span class="menu-title">Stock Shipment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stock_balance_report">
+            <i class="mdi mdi-image-filter-frames menu-icon "></i>
+            <span class="menu-title">Stock Balance</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tickets">
+            <i class="mdi mdi-assistant menu-icon "></i>
+            <span class="menu-title">Tickets</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item sidebar-actions">
             <div class="sidebar-action-btn-wrap">
               <div class="form-check">
                 <label class="form-check-label">
@@ -111,267 +113,278 @@
               </ul>
             </div>
           </li> -->
-        </ul>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_settings-panel.html -->
+      <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
+      <div id="theme-settings" class="settings-panel">
+        <i class="settings-close mdi mdi-close"></i>
+        <p class="settings-heading">SIDEBAR SKINS</p>
+        <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+          <div class="img-ss rounded-circle bg-light border mr-3"></div>Default
+        </div>
+        <div class="sidebar-bg-options" id="sidebar-dark-theme">
+          <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
+          <button class="navbar-toggler navbar-toggler align-items-center" type="button" data-toggle="minimize">
+            <i class="mdi mdi-menu"></i>
+          </button>
+          <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+
+          </div>
+          <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+            <li class="nav-item nav-search border-0 mr-1 mr-md-3 mr-lg-5 d-none d-md-flex">
+              <form class="nav-link form-inline mt-2 mt-md-0">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="mdi mdi-magnify"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Search" />
+                </div>
+              </form>
+            </li>
+            <li class="nav-item dropdown dropleft">
+              <a class="nav-link" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-bell-outline"></i>
+              </a>
+              <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list dropdown-menu-right"
+                aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0 ">Notifications</h6>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="mb-0"> Dany Miles <span class="text-small text-secondary">commented on your photo</span>
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="mb-0"> James <span class="text-small text-secondary">posted a photo on your wall</span>
+                    </p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="mb-0"> Alex <span class="text-small text-secondary">just mentioned you in his post</span>
+                    </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 ">View all activities</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="messageDropdown" href="#" data-toggle="dropdown">
+                <i class="mdi mdi-email-outline"></i>
+              </a>
+              <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list"
+                aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0 ">Messages</h6>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-success">Request</span>
+                    <p class="text-small text-secondary ellipsis mb-0"> Suport needed for user123 </p>
+                  </div>
+                  <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-warning">Invoices</span>
+                    <p class="text-small text-secondary ellipsis mb-0"> Invoice for order is mailed </p>
+                  </div>
+                  <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-item-content flex-grow">
+                    <span class="badge badge-pill badge-danger">Projects</span>
+                    <p class="text-small text-secondary ellipsis mb-0"> New project will start tomorrow </p>
+                  </div>
+                  <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
+                </a>
+                <h6 class="p-3 mb-0 ">See all activity</h6>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">
+                <i class="mdi mdi-home-outline"></i>
+              </a>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
       </nav>
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_settings-panel.html -->
-        <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close mdi mdi-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
-            <div class="img-ss rounded-circle bg-light border mr-3"></div>Default
-          </div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme">
-            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
-          </div>
-        </div>
-        <!-- partial -->
-        <!-- partial:../../partials/_navbar.html -->
-        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
-          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
-            <button class="navbar-toggler navbar-toggler align-items-center" type="button" data-toggle="minimize">
-              <i class="mdi mdi-menu"></i>
-            </button>
-            <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-              
-            </div>
-            <ul class="navbar-nav navbar-nav-right ml-lg-auto">
-              <li class="nav-item nav-search border-0 mr-1 mr-md-3 mr-lg-5 d-none d-md-flex">
-                <form class="nav-link form-inline mt-2 mt-md-0">
-                  <div class="input-group">
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="mdi mdi-magnify"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search" />
-                  </div>
-                </form>
-              </li>
-              <li class="nav-item dropdown dropleft">
-                <a class="nav-link" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-bell-outline"></i>
-                </a>
-                <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list dropdown-menu-right" aria-labelledby="notificationDropdown">
-                  <h6 class="p-3 mb-0 ">Notifications</h6>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> Dany Miles <span class="text-small text-secondary">commented on your photo</span>
-                      </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> James <span class="text-small text-secondary">posted a photo on your wall</span>
-                      </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <img src="https://via.placeholder.com/30x30" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> Alex <span class="text-small text-secondary">just mentioned you in his post</span>
-                      </p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 ">View all activities</p>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="messageDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-email-outline"></i>
-                </a>
-                <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
-                  <h6 class="p-3 mb-0 ">Messages</h6>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-success">Request</span>
-                      <p class="text-small text-secondary ellipsis mb-0"> Suport needed for user123 </p>
-                    </div>
-                    <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-warning">Invoices</span>
-                      <p class="text-small text-secondary ellipsis mb-0"> Invoice for order is mailed </p>
-                    </div>
-                    <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-danger">Projects</span>
-                      <p class="text-small text-secondary ellipsis mb-0"> New project will start tomorrow </p>
-                    </div>
-                    <p class="text-small text-secondary align-self-start"> 4:10 PM </p>
-                  </a>
-                  <h6 class="p-3 mb-0 ">See all activity</h6>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">
-                  <i class="mdi mdi-home-outline"></i>
-                </a>
-              </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-              <span class="mdi mdi-menu"></span>
-            </button>
-          </div>
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <!-- <h4 class="card-title">New Order</h4> -->
-                    <form id="example-form" action="#">
-                      <div>
-                        <h3>Contact</h3>
-                        <section>
-                          <h3>Contact</h3><br>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Customer Mobile No</label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="buyr_contact_num" class="form-control" placeholder="Mobile No" required />
-                                </div>
-                              </div>
-                            </div>  
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Customer Name</label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="buyer_name" class="form-control" placeholder="Name" required/>
-                                </div>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <!-- <h4 class="card-title">New Order</h4> -->
+
+                  <form id="example-form" action="#">
+                    <div>
+                      <h3>Contact</h3>
+                      <section>
+                        <h3>Contact</h3><br>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Customer Mobile No</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="buyr_contact_num" class="form-control" placeholder="Mobile No"
+                                  value="{{doc.end_user_phone_number}}" required />
                               </div>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Secondary Mobile No </label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="buyr_contact_num2" class="form-control" placeholder="mobile No 2" required/>
-                                </div>
-                              </div>
-                            </div> 
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Customer Email </label>
-                                <div class="col-sm-9">
-                                  <input type="email" id="email" class="form-control" placeholder="Email" required />
-                                </div>
-                              </div>
-                            </div> 
-                            
-                          </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <div class="col-sm-9">
-                                  <button type="button" class="btn btn-outline-success btn-fw"> Change Address </button>
-                                </div>
-                              </div>
-                            </div> 
-                          </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <div class="col-sm-9">
-                                  <button type="button" class="btn btn-outline-success btn-fw"> Add Address </button>
-                                </div>
-                              </div>
-                            </div> 
-                          </div>
-                        </section>
-                        <h3>Shipping</h3>
-                        <section>
-                          <h3>Shipping Details</h3><br>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">House No</label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="locationid" class="form-control" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Building No</label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="building_no" class="form-control" />
-                                </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Customer Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="buyer_name" class="form-control" placeholder="Name" required
+                                  value="{{doc.client_name}}" />
                               </div>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Street</label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="street" class="form-control" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Zone No</label>
-                                <div class="col-sm-9">
-                                  <input type="text" id="zone_num" class="form-control" required />
-                                </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Secondary Mobile No </label>
+                              <div class="col-sm-9">
+                                <input type="text" id="buyr_contact_num2" class="form-control" placeholder="mobile No 2"
+                                  required />
                               </div>
                             </div>
                           </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group row">
-                                  <label class="col-sm-3 col-form-label">Delivered By</label>
-                                  <div class="col-sm-9">
-                                    <select class="form-control" style="width:100%" id="delivery_order_type">
-                                      <option value="inbox" selected>Inbox</option>
-                                      <option value="other_company">My Driver</option>
-                                    </select>
-                                  </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Customer Email </label>
+                              <div class="col-sm-9">
+                                <input type="email" id="email" class="form-control" placeholder="Email" required
+                                  {{doc.end_user_email}} />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <div class="col-sm-9">
+                                <button type="button" class="btn btn-outline-success btn-fw"> Change Address </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <div class="col-sm-9">
+                                <button type="button" class="btn btn-outline-success btn-fw"> Add Address </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      <h3>Shipping</h3>
+                      <section>
+                        <h3>Shipping Details</h3><br>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">House No</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="locationid" class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Building No</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="building_no" class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Street</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="street" class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Zone No</label>
+                              <div class="col-sm-9">
+                                <input type="text" id="zone_num" class="form-control" required />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Delivered By</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" style="width:100%" id="delivery_order_type">
+                                  <option value="inbox" selected>Inbox</option>
+                                  <option value="other_company">My Driver</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Payment</label>
+                              <div class="col-sm-3">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="payment" id="paid" value=""
+                                      checked /> Paid </label>
                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Payment</label>
-                                      <div class="col-sm-3">
-                                        <div class="form-check">
-                                          <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="payment" id="paid" value="" checked /> Paid </label>
-                                        </div>
-                                      </div>
-                                      <div class="col-sm-3">
-                                        <div class="form-check">
-                                          <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="payment" id="cod" value="option2" /> COD/POS/Link </label>
-                                        </div>
-                                      </div>
-                                      <div class="col-sm-3">
-                                        <div class="form-check">
-                                          <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="payment" id="online_link" value="option3" /> Online Link </label>
-                                        </div>
-                                      </div>
+                              <div class="col-sm-3">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="payment" id="cod"
+                                      value="option2" /> COD/POS/Link </label>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="payment" id="online_link"
+                                      value="option3" /> Online Link </label>
+                                </div>
+                              </div>
 
 
-                                        <!-- <div class="form-check">
+                              <!-- <div class="form-check">
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input" name="payment" id="paid" value="" />
                                                 Paid
@@ -389,75 +402,77 @@
                                                 POS/Link
                                             </label>
                                         </div> -->
-                                </div>
                             </div>
                           </div>
-                          <div class="row" id="myDriverFields" style="display: none;">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Driver Name</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" id="driver_name">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Driver Number</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" id="driver_number">
-                                </div>
+                        </div>
+                        <div class="row" id="myDriverFields" style="display: none;">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Driver Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="driver_name">
                               </div>
                             </div>
                           </div>
-                          <script>
-                            $(document).ready(function () {
-                              $('#delivery_order_type').change(function () {
-                                if ($(this).val() === 'other_company') {
-                                  $('#myDriverFields').show();
-                                } else {
-                                  $('#myDriverFields').hide();
-                                }
-                              });
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Driver Number</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="driver_number">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <script>
+                          $(document).ready(function () {
+                            $('#delivery_order_type').change(function () {
+                              if ($(this).val() === 'other_company') {
+                                $('#myDriverFields').show();
+                              } else {
+                                $('#myDriverFields').hide();
+                              }
                             });
-                          </script>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Delivery Instruction</label>
-                                <div class="col-sm-9">
-                                  <select class="form-control" id="delivery_instruction" style="width:100%">
-                                    <option></option>
-                                    <option value="Normal" selected>Don't Knock The Door</option>
-                                    
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Delivery Time Range</label>
-                                <div class="col-sm-9">
-                                  <select class="form-control" id="delivery_time" style="width:100%">
-                                    <option></option>
-                                    <option value="morning">9 AM To 12 AM</option>
-                                    <option value="noon">1 PM To 5 PM</option>
-                                  </select>
-                                </div>
+                          });
+                        </script>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Delivery Instruction</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" id="delivery_instruction" style="width:100%">
+                                  <option></option>
+                                  <option value="Normal" selected>Don't Knock The Door</option>
+
+                                </select>
                               </div>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-4 col-form-label express-delivery" style="padding-top: -6px;"> Do Your Customer Need Fast Delivery</label>
-                                <div class="form-check form-check-primary"><label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input"> &nbsp;&nbsp; <i class="input-helper"></i></label>
-                                </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Delivery Time Range</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" id="delivery_time" style="width:100%">
+                                  <option></option>
+                                  <option value="morning">9 AM To 12 AM</option>
+                                  <option value="noon">1 PM To 5 PM</option>
+                                </select>
                               </div>
                             </div>
                           </div>
-                          <!-- <div class="row">
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-4 col-form-label express-delivery" style="padding-top: -6px;"> Do
+                                Your Customer Need Fast Delivery</label>
+                              <div class="form-check form-check-primary"><label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input"> &nbsp;&nbsp; <i
+                                    class="input-helper"></i></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="row">
                             <div class="col-md-6">
                               <div class="form-group row">
                                 <div class="col-sm-2 col-form-label"></div>
@@ -467,87 +482,91 @@
                               </div>
                             </div>
                           </div> -->
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Notes </label>
-                                <div class="col-sm-9">
-                                  <textarea rows="10" id="notes" class="form-control" name="notes" rows="23" cols="35"   placeholder="Notes"></textarea>
-                                </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Notes </label>
+                              <div class="col-sm-9">
+                                <textarea rows="10" id="notes" class="form-control" name="notes" rows="23" cols="35"
+                                  placeholder="Notes"></textarea>
                               </div>
                             </div>
                           </div>
-                        </section>
-                        <h3>Items</h3>
-                        <section>
-                          <h3>Items</h3><br>
-                          <div class="col-lg-12 grid-margin stretch-card">
-                            <div class="card">
-                              <div class="card-body">
-                                <h4 class="card-title">Delivery Order Item</h4>
-                                <div class="table-responsive">
-                                  <table class="table table-bordered" id="tbl_order_item">
-                                    <thead>
-                                      <tr>
-                                        <th><Sl class="No"></Sl></th>
-                                        <th>TAG</th>
-                                        <th>Item Name</th>
-                                        <th>Barcode</th>
-                                        <th>Qty</th>
-                                        <th>UOM</th>
-                                        <th>Rate</th>
-                                        <th>Total</th>
-                                        <th>Vas</th>
-                                        <th>Action</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody id="tbl_order_item_body">
-                                      
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <button type="button" class="btn btn-success btn-md" onclick="" style="margin-top:30px;">Add Row</button>
+                        </div>
+                      </section>
+                      <h3>Items</h3>
+                      <section>
+                        <h3>Items</h3><br>
+                        <div class="col-md-12 grid-margin stretch-card" style="overflow: scroll;overflow-x: scroll;">
+                          <div class="card" style="overflow: scroll;overflow-x: scroll;">
+                            <div class="card-body">
+                              <h4 class="card-title">Delivery Order Item</h4>
+                              <div class="table-responsive">
+                                <table class="table table-bordered" id="tbl_order_item">
+                                  <thead>
+                                    <tr>
+                                      <th>
+                                        <Sl class="No"></Sl>
+                                      </th>
+                                      <th>TAG</th>
+                                      <th>Item Name</th>
+                                      <th>Barcode</th>
+                                      <th>Qty</th>
+                                      <th>UOM</th>
+                                      <th>Rate</th>
+                                      <th>Total</th>
+                                      <th>Vas</th>
+                                      <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="tbl_order_item_body">
+
+                                  </tbody>
+                                </table>
                               </div>
+                              <button type="button" class="btn btn-success btn-md" onclick=""
+                                style="margin-top:30px;">Add Row</button>
                             </div>
                           </div>
-                          <script>
-                            function addRow() {
-                                var tableBody = document.getElementById("tbl_order_item_body");
-                                var newRow = tableBody.insertRow(tableBody.rows.length);
-                                newRow.insertCell(0).innerHTML = tableBody.rows.length;
-                        
-                                for (var i = 1; i <= 8; i++) {
-                                    var cell = newRow.insertCell(i);
-    
-                                    var input = document.createElement("input");
-                                    input.type = "text";
-                                    input.className = "form-control";
-                                    cell.appendChild(input);
-                                }
-                        
-                                var deleteButton = document.createElement("button");
-                                deleteButton.innerHTML = '<i class="mdi mdi-delete"></i>';
-                                deleteButton.className = "btn btn-danger btn-sm";
-                                deleteButton.onclick = function () {
-                                    deleteRow(newRow);
-                                };
-                        
-                                var deleteCell = newRow.insertCell(9);
-                                deleteCell.appendChild(deleteButton);
+                        </div>
+                        <script>
+                          function addRow() {
+                            var tableBody = document.getElementById("tbl_order_item_body");
+                            var newRow = tableBody.insertRow(tableBody.rows.length);
+                            newRow.insertCell(0).innerHTML = tableBody.rows.length;
+
+                            for (var i = 1; i <= 8; i++) {
+                              var cell = newRow.insertCell(i);
+
+                              var input = document.createElement("input");
+                              input.type = "text";
+                              input.className = "form-control";
+                              cell.appendChild(input);
                             }
-                        
-                            function deleteRow(row) {
-                                var index = row.rowIndex;
-                                document.getElementById("tbl_order_item").deleteRow(index);
-                                updateRowNumbers();
+
+                            var deleteButton = document.createElement("button");
+                            deleteButton.innerHTML = '<i class="mdi mdi-delete"></i>';
+                            deleteButton.className = "btn btn-danger btn-sm";
+                            deleteButton.onclick = function () {
+                              deleteRow(newRow);
+                            };
+
+                            var deleteCell = newRow.insertCell(9);
+                            deleteCell.appendChild(deleteButton);
+                          }
+
+                          function deleteRow(row) {
+                            var index = row.rowIndex;
+                            document.getElementById("tbl_order_item").deleteRow(index);
+                            updateRowNumbers();
+                          }
+
+                          function updateRowNumbers() {
+                            var tableBody = document.getElementById("tbl_order_item_body");
+                            for (var i = 0; i < tableBody.rows.length; i++) {
+                              tableBody.rows[i].cells[0].innerHTML = i + 1;
                             }
-                        
-                            function updateRowNumbers() {
-                                var tableBody = document.getElementById("tbl_order_item_body");
-                                for (var i = 0; i < tableBody.rows.length; i++) {
-                                    tableBody.rows[i].cells[0].innerHTML = i + 1;
-                                }
-                            }
+                          }
                         </script>
                         <div class="row">
                           <div class="col-md-6">
@@ -559,10 +578,10 @@
                             </div>
                           </div>
                         </div>
-                          <!-- <button type="submit" class="btn btn-primary"> Save </button>
+                        <!-- <button type="submit" class="btn btn-primary"> Save </button>
                           <button class="btn btn-light">Clear</button> -->
-                        </section>
-                        <!-- <h3>Payment</h3>
+                      </section>
+                      <!-- <h3>Payment</h3>
                         <section>
                           <h3>Payment</h3>
                           <div class="form-check">
@@ -570,132 +589,133 @@
                               <input class="checkbox" type="checkbox" /> I agree with the Terms and Conditions. </label>
                           </div>
                         </section> -->
-                      </div>
-                    </form>
-                  </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          
-          <!-- partial -->
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="../../assets/customer_panel/vendors/jquery-steps/jquery.steps.min.js"></script>
-    <script src="../../assets/customer_panel/vendors/jquery-validation/jquery.validate.min.js"></script>
-    <script src="../../assets/customer_panel/vendors/select2/select2.min.js"></script>
-    <script src="../../assets/customer_panel/vendors/typeahead.js/typeahead.bundle.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../assets/customer_panel/js/off-canvas.js"></script>
-    <script src="../../assets/customer_panel/js/hoverable-collapse.js"></script>
-    <script src="../../assets/customer_panel/js/misc.js"></script>
-    <script src="../../assets/customer_panel/js/settings.js"></script>
-    <script src="../../assets/customer_panel/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../../assets/customer_panel/js/wizard.js"></script>
-    <!-- End custom js for this page -->
-    <!-- Custom js for this page -->
-    <script src="../../assets/customer_panel/js/file-upload.js"></script>
-    <script src="../../assets/customer_panel/js/typeahead.js"></script>
-    <script src="../../assets/customer_panel/js/select2.js"></script>
-    <!-- End custom js for this page -->
-  </body>
-  <script>
-    window.frappe = {};
-    frappe.ready_events = []
-    frappe.ready = function(fn){
-      // $(".wizard > .steps").hide()
-      $(".wizard > .content > .body").css('position', 'relative')
-      $(".col-form-label > .express-delivery").css('padding-top', '0px')
-      
-      $(".col-form-label").css("padding-top", "3px");
-      $('.navbar-expand-lg').hide()
-      $('.footer-section').hide()
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
 
-      // new_row();
-      AddNewRow();
-      
-      let _CheckLogin=0;
-      // frappe.call({
-      //   method:"inbox_portal.www.my_payable.getItemCode",
-      //   callback:function(r){
-      //     //console.log(r.message);
-      //     if(r)
-      //       _CheckLogin=1;
-      //     console.log(r)
-      //   }
-      // });
-      // setTimeout(function() {
-      //   if(_CheckLogin==0)
-      //     {
-      //       window.location.href = "/#login"
-      //       return;
-      //     }
-      // },700)
-      function AddNewRow(){
-        let rowCount = $('#tbl_order_item >tbody >tr').length;
-        let srNo=parseInt(rowCount) + 1;
-        let addcontrols="<tr>"
-        addcontrols+="<td>"+(srNo)+"</td>"
-        //   addcontrols+= "<td><input ' type ='text' id='filtertext"+srNo+"'  onkeyup='filter("+srNo+")'/></td>"
-        addcontrols+="<td><select class='Item_Code' onchange='changeFunc("+srNo+");' id='ItemCode"+srNo+"'></select></td>"
-        addcontrols+="<td><input type='text' name='description' placeholder='Item name' id='description"+srNo+"' ></td>"
-        addcontrols+="<td><input type='text' name='barcode' onchange='getdatafun("+srNo+");' placeholder='barcode' id='barcode"+srNo+"'></td>"
-        addcontrols+="<td><input type='number' name='qty' oninput='CalcaluteQty("+srNo+")' placeholder='QTY' id='qty"+srNo+"' ></td>"
-        addcontrols+="<td><input type='text' name='uom' placeholder='UOM'id='uom"+srNo+"' ></td>"
-        addcontrols+="<td><input type='number' name='Price' oninput='CalcaluteQty("+srNo+")' placeholder='Price' id='Price"+srNo+"' ></td>"
-        addcontrols+="<td><input type='text' name='Total_Price' placeholder='Total_Price' id='Total_Price"+srNo+"' ></td>"
-        addcontrols+="<td><input type='checkbox' onchange='changeFunc("+srNo+");' class='form-check-input' id='ItemCode"+srNo+"' id='vas"+srNo+"'></td> "
-        addcontrols+="<td><a style='color:red' class='btn btn-xs delete-record' onclick='deleteRow(this)' data-id='2'><i class='glyphicon glyphicon-trash'></i></a></td>"
-        // addcontrols+="<td style='display: none'><input type='number' name='Total_Price' placeholder='Total_Price' id='Total_Price"+srNo+"' ></td>"
-        // addcontrols+="<td style='display: none'><input type='number' name='Total_Volume' placeholder='Total_Volume' id='Total_Volume"+srNo+"' ></td>"
-        // addcontrols+="<td style='display: none'><input type='number' name='volume' placeholder='volume' id='volume"+srNo+"' ></td>"
-        addcontrols+"</tr>";
-    
-        $("#tbl_order_item tbody").append(addcontrols);
-    
-        srNo+=1; 
-        
-      }
-      function new_row() {
-        let options = '<option></option>'
-        let rowCount = $('#tbl_order_item >tbody >tr').length;
-        rowCount = parseInt(rowCount) + 1
-        var totalRows = 0;
-        frappe.call({
-            method: "inbox_portal.www.my_payable.getItemCode",
-            callback: function (r) {
-                //console.log(r.message);
-                if (r) {
-                    console.log(r.message);
-                    let data = r.message;
-                    for (let i in data) {
-                        options += `<option value="${data[i]}">${data[i]}</option>`
-                    }
-                    $("#ItemCode" + rowCount).html(options);
-                    $(function () {
-                      $("#Item_Code" + rowCount).select2();
-                    });
-                }
-            }
-        });
-        options = "";
-      }
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="../../assets/customer_panel/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="../../assets/customer_panel/vendors/jquery-steps/jquery.steps.min.js"></script>
+  <script src="../../assets/customer_panel/vendors/jquery-validation/jquery.validate.min.js"></script>
+  <script src="../../assets/customer_panel/vendors/select2/select2.min.js"></script>
+  <script src="../../assets/customer_panel/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../assets/customer_panel/js/off-canvas.js"></script>
+  <script src="../../assets/customer_panel/js/hoverable-collapse.js"></script>
+  <script src="../../assets/customer_panel/js/misc.js"></script>
+  <script src="../../assets/customer_panel/js/settings.js"></script>
+  <script src="../../assets/customer_panel/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="../../assets/customer_panel/js/wizard.js"></script>
+  <!-- End custom js for this page -->
+  <!-- Custom js for this page -->
+  <script src="../../assets/customer_panel/js/file-upload.js"></script>
+  <script src="../../assets/customer_panel/js/typeahead.js"></script>
+  <script src="../../assets/customer_panel/js/select2.js"></script>
+  <!-- End custom js for this page -->
+</body>
+<script>
+  window.frappe = {};
+  frappe.ready_events = []
+  frappe.ready = function (fn) {
+    // $(".wizard > .steps").hide()
+    $(".wizard > .content > .body").css('position', 'relative')
+    $(".col-form-label > .express-delivery").css('padding-top', '0px')
+
+    $(".col-form-label").css("padding-top", "3px");
+    $('.navbar-expand-lg').hide()
+    $('.footer-section').hide()
+
+    // new_row();
+    AddNewRow();
+
+    let _CheckLogin = 0;
+    // frappe.call({
+    //   method:"inbox_portal.www.my_payable.getItemCode",
+    //   callback:function(r){
+    //     //console.log(r.message);
+    //     if(r)
+    //       _CheckLogin=1;
+    //     console.log(r)
+    //   }
+    // });
+    // setTimeout(function() {
+    //   if(_CheckLogin==0)
+    //     {
+    //       window.location.href = "/#login"
+    //       return;
+    //     }
+    // },700)
+    function AddNewRow() {
+      let rowCount = $('#tbl_order_item >tbody >tr').length;
+      let srNo = parseInt(rowCount) + 1;
+      let addcontrols = "<tr>"
+      addcontrols += "<td>" + (srNo) + "</td>"
+      //   addcontrols+= "<td><input ' type ='text' id='filtertext"+srNo+"'  onkeyup='filter("+srNo+")'/></td>"
+      addcontrols += "<td><select class='Item_Code' onchange='changeFunc(" + srNo + ");' id='ItemCode" + srNo + "'></select></td>"
+      addcontrols += "<td><input type='text' name='description' placeholder='Item name' id='description" + srNo + "' ></td>"
+      addcontrols += "<td><input type='text' name='barcode' onchange='getdatafun(" + srNo + ");' placeholder='barcode' id='barcode" + srNo + "'></td>"
+      addcontrols += "<td><input type='number' name='qty' oninput='CalcaluteQty(" + srNo + ")' placeholder='QTY' id='qty" + srNo + "' ></td>"
+      addcontrols += "<td><input type='text' name='uom' placeholder='UOM'id='uom" + srNo + "' ></td>"
+      addcontrols += "<td><input type='number' name='Price' oninput='CalcaluteQty(" + srNo + ")' placeholder='Price' id='Price" + srNo + "' ></td>"
+      addcontrols += "<td><input type='text' name='Total_Price' placeholder='Total_Price' id='Total_Price" + srNo + "' ></td>"
+      addcontrols += "<td><input type='checkbox' onchange='changeFunc(" + srNo + ");' class='form-check-input' id='ItemCode" + srNo + "' id='vas" + srNo + "'></td> "
+      addcontrols += "<td><a style='color:red' class='btn btn-xs delete-record' onclick='deleteRow(this)' data-id='2'><i class='glyphicon glyphicon-trash'></i></a></td>"
+      // addcontrols+="<td style='display: none'><input type='number' name='Total_Price' placeholder='Total_Price' id='Total_Price"+srNo+"' ></td>"
+      // addcontrols+="<td style='display: none'><input type='number' name='Total_Volume' placeholder='Total_Volume' id='Total_Volume"+srNo+"' ></td>"
+      // addcontrols+="<td style='display: none'><input type='number' name='volume' placeholder='volume' id='volume"+srNo+"' ></td>"
+      addcontrols + "</tr>";
+
+      $("#tbl_order_item tbody").append(addcontrols);
+
+      srNo += 1;
+
     }
-    window.dev_server = 1
-    window.socketio_port = 9002
-  </script>
+    function new_row() {
+      let options = '<option></option>'
+      let rowCount = $('#tbl_order_item >tbody >tr').length;
+      rowCount = parseInt(rowCount) + 1
+      var totalRows = 0;
+      frappe.call({
+        method: "inbox_portal.www.my_payable.getItemCode",
+        callback: function (r) {
+          //console.log(r.message);
+          if (r) {
+            console.log(r.message);
+            let data = r.message;
+            for (let i in data) {
+              options += `<option value="${data[i]}">${data[i]}</option>`
+            }
+            $("#ItemCode" + rowCount).html(options);
+            $(function () {
+              $("#Item_Code" + rowCount).select2();
+            });
+          }
+        }
+      });
+      options = "";
+    }
+  }
+  window.dev_server = 1
+  window.socketio_port = 9002
+</script>
+
 </html>
 {% endblock %}

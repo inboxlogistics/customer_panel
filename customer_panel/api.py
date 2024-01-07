@@ -1,4 +1,4 @@
-import frappe
+import frappe,json
 
 
 @frappe.whitelist(allow_guest=True)
@@ -39,3 +39,40 @@ def get_data_delivery_dashboard(name):
             address,end_user_email,customer_notes,inbox_logistics_mistake 
         FROM `tabDelivery Dashboard Form` WHERE name = %s """,((str(name))))
     return data
+
+@frappe.whitelist()
+def get_all_items():
+    return frappe.get_all('Item', filters={'disabled':1},fields=['name','item_name'])
+
+@frappe.whitelist()
+def get_all_uoms(item_code):
+    return frappe.db.sql(''' select ucd.uom, i.stock_uom from `tabUOM Conversion Detail` ucd join `tabItem` i
+                    on ucd.parent=i.name where ucd.parent= %(item_code)s and i.name = %(item_code)s''',{"item_code": item_code},
+                    as_dict=1)
+   
+
+@frappe.whitelist()
+def get_barcodes_item(barcode):
+    return frappe.get_all("Item Barcode", filters={'barcode':["like",barcode]},fields=['parent'], limit=1)
+
+@frappe.whitelist()
+def save_delivery_dashboard_doc(doc):
+    doc = json.loads(doc) 
+    cust_list = frappe.get_list('Customer')
+    delivery_doc = frappe.get_doc({"doctype": "Delivery Dashboard Form", "client_name": cust_list[0].name, "end_user_name": doc.get('buyer_name'),
+                                   "end_user_email": doc.get('email'), "street": doc.get('street'), "notes": doc.get('notes'),
+                                   "address": doc.get('locationid'), "building_no": doc.get('building_no'), "zone_no": doc.get('zone_num'),
+                                   "end_user_phone_number": doc.get('buyr_contact_num')})
+    delivery_doc.delivery_date_and_preferred_timing = frappe.utils.today()
+    delivery_doc.ecom_order_no="test314"
+    if doc.get("items"):
+        for item in doc.get("items"):
+            delivery_doc.append("ecommerce_item", {
+                "item_code": item.get('item_code'),
+                "uom": item.get('uom'),
+                "qty": item.get('qty'),
+                "rate": item.get('rate'),
+                "amount": item.get('total')
+            })
+    delivery_doc.insert(ignore_permissions=True)
+    return delivery_doc.name

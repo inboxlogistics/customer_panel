@@ -48,7 +48,7 @@
             <span class="menu-title">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="/order_list">
             <i class="mdi mdi-cart-outline menu-icon"></i>
             <span class="menu-title">Order List</span>
@@ -243,8 +243,8 @@
                   To <input type="date" class="form-control-sm" id="to_date"></input>
                 </div>
                 <div class="col-sm-12 col-md-4" align="right">
-                  <a href="/order_list/new_order" class="btn btn-success btn-md float-right"
-                    style="margin-bottom: 15px;">New Order</a>
+                  <a href="/new-order" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New
+                    Order</a>
                   </button>
                 </div>
               </div>
@@ -399,9 +399,9 @@
           method: "customer_panel.www.order_list.index.get_delivery_dashboard_list",
           args: { from_date: e.target.value, to_date: toDate }
         }).then(resp => {
-          $('#table_data')[0].innerHTML=''
+          $('#table_data')[0].innerHTML = ''
           resp.message.map(item => {
-            
+
           })
         })
       }
@@ -411,7 +411,9 @@
     })
 
 
-    $('#table_check').on('click', function () {
+    $('#table_check').on('click', function (e) {
+      e.preventDefault();
+      console.log('running')
       if ($("#table_check").is(":checked")) {
         $('input:checkbox:visible').prop('checked', true)
       }
