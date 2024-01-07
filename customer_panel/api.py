@@ -1,4 +1,4 @@
-import frappe,json
+import frappe,json, uuid
 
 
 @frappe.whitelist(allow_guest=True)
@@ -64,7 +64,7 @@ def save_delivery_dashboard_doc(doc):
                                    "address": doc.get('locationid'), "building_no": doc.get('building_no'), "zone_no": doc.get('zone_num'),
                                    "end_user_phone_number": doc.get('buyr_contact_num')})
     delivery_doc.delivery_date_and_preferred_timing = frappe.utils.today()
-    delivery_doc.ecom_order_no="test314"
+    delivery_doc.ecom_order_no= doc.get("items")[0].get('row_id')
     if doc.get("items"):
         for item in doc.get("items"):
             delivery_doc.append("ecommerce_item", {
@@ -76,3 +76,34 @@ def save_delivery_dashboard_doc(doc):
             })
     delivery_doc.insert(ignore_permissions=True)
     return delivery_doc.name
+
+@frappe.whitelist()
+def get_order(order_id):
+    data = {}
+    if frappe.db.exists("Delivery Dashboard Form", order_id):
+        doc = frappe.get_doc('Delivery Dashboard Form', order_id)
+        data["buyer_name"] = doc.get('end_user_name')
+        data['email'] = doc.get('end_user_email')
+        data['street'] = doc.get('street')
+        data['notes'] = doc.get('notes')
+        data['locationid'] = doc.get('address')
+        data['building_no'] = doc.get('building_no')
+        data['building_no'] = doc.get('building_no')
+        data['zone_num'] = doc.get('zone_no')
+        data['buyr_contact_num'] = doc.get('end_user_phone_number')
+        data['items'] = []
+        if doc.get('ecommerce_item'):
+            for item in doc.get('ecommerce_item'):
+                data["items"].append({
+                    "row_id": item.get('name'),
+                    "sr_no": item.get('idx'),
+                    "item_code": item.get('item_code'),
+                    "uom": item.get('uom'),
+                    "qty": item.get('qty'),
+                    "rate": item.get('rate'),
+                    "total": item.get('amount'),
+                    "barcode": item.get('barcode'),
+                    "tag": item.get('tag')
+                })
+    return data
+

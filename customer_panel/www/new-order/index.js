@@ -104,15 +104,16 @@ $(() => {
 
   function setValues(e) {
     if (!$(e.target).attr("row_id")) {
-      const countryCode = $(
-        $(
-          $("#" + e.target.id)
-            .prev()
-            .find("ul li.iti__active")[0]
-        ).children()[2]
-      ).text()
-        ? e.target.type === "tel"
-        : "";
+      const countryCode =
+        e.target.type === "tel"
+          ? $(
+              $(
+                $("#" + e.target.id)
+                  .prev()
+                  .find("ul li.iti__active")[0]
+              ).children()[2]
+            ).text()
+          : "";
       const value =
         e.target.type === "checkbox"
           ? $(e.target).is(":checked")
