@@ -43,7 +43,9 @@ def get_context(context):
         context.user_full_name = user.full_name
         context.user_email = user.email
         context.user_image = user.user_image 
-        context.data = get_delivery_dashboard_list(customer)
+        # data, order_count = get_delivery_dashboard_list(customer)
+        # context.data = data
+        # context.order_count = order_count
 
 @frappe.whitelist()
 def get_delivery_dashboard_list(customer=None, from_date=None, to_date=None):
@@ -70,6 +72,8 @@ def get_delivery_dashboard_list(customer=None, from_date=None, to_date=None):
             "name","end_user_name","end_user_phone_number",  "ecom_order_no", 
             "delivery_date_and_preferred_timing", "total_order_amount",
             "order_status"
-        ]
+        ],
+        order_by = "creation desc",
     )
-    return orderlist
+    order_count = len(orderlist)
+    return orderlist,order_count

@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="../../assets/customer_panel/css/demo_1/style.css" />
   <!-- End layout styles -->
   <link rel="shortcut icon" href="../../assets/customer_panel/images/favicon.png" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -242,16 +246,27 @@
                   From <input type="date" class="form-control-sm" id="from_dater"></input> &nbsp;&nbsp;&nbsp;
                   To <input type="date" class="form-control-sm" id="to_date"></input>
                 </div>
+
                 <div class="col-sm-12 col-md-4" align="right">
-                  <a href="/new-order" class="btn btn-success btn-md float-right" style="margin-bottom: 15px;">New
+                  <a href="/new-order" class="btn btn-success btn-md float-right"
+                    style="margin-bottom: 15px;    margin-right: 10px;">New
                     Order</a>
+                  <a class="btn btn-primary btn-md float-right"
+                    style="margin-bottom: 15px;margin-right: 10px;color: white;" fieldname="export_pdf">Export
+                    PDF</a>
+                  <a href="#" class="btn btn-primary btn-md float-right"
+                    style="margin-bottom: 15px;    margin-right: 10px;" fieldname="export_data">Export
+                    Excel</a>
+
                   </button>
                 </div>
+
+
               </div>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
-                    <table id="order-listing" class="table">
+                    <table id="" class="table">
                       <thead>
                         <tr>
                           <th>
@@ -270,7 +285,7 @@
                       </thead>
                       <tbody id="table_data">
                         <!-- {{ data }} -->
-                        {% for item in data %}
+                        <!-- {% for item in data %}
                         <tr id="data">
                           <td>
                             <div class="form-check form-check-primary"><input type="checkbox" class="form-check-input">
@@ -298,23 +313,34 @@
                     </div>
                   </td>
                   </tr>
-                  {% endfor %}
-                  </tbody>
-                  </table>
+                  {% endfor %} -->
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-7" style="display: flex;
+              justify-content: end;">
+                  <ul class="pagination">
+
+                  </ul>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
-      </div>
-      <!-- content-wrapper ends -->
-      <!-- partial:../../partials/_footer.html -->
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
 
-      <!-- partial -->
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
     </div>
-    <!-- main-panel ends -->
-  </div>
-  <!-- page-body-wrapper ends -->
+    <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
@@ -337,6 +363,8 @@
 </body>
 <script>
   window.frappe = {};
+  window.curList = []
+  window.filteredList = []
   frappe.ready_events = []
   frappe.ready = function (fn) {
     console.log("--- order list read ---")
@@ -388,48 +416,10 @@
 </script>
 <script>
   $(document).ready(function () {
-    const today_date = getTodayDate();
-    $('#from_dater').val(`${today_date}`)
-    $('#to_date').val(`${today_date}`)
 
-    $('#from_dater').change((e) => {
-      const toDate = $('#to_date').val();
-      if (e.target.value < toDate) {
-        frappe.call({
-          method: "customer_panel.www.order_list.index.get_delivery_dashboard_list",
-          args: { from_date: e.target.value, to_date: toDate }
-        }).then(resp => {
-          $('#table_data')[0].innerHTML = ''
-          resp.message.map(item => {
-
-          })
-        })
-      }
-      else {
-        alert('To Date should be less than From Date')
-      }
-    })
-
-
-    $('#table_check').on('click', function (e) {
-      e.preventDefault();
-      console.log('running')
-      if ($("#table_check").is(":checked")) {
-        $('input:checkbox:visible').prop('checked', true)
-      }
-      else {
-        $('input:checkbox:visible').prop('checked', false)
-      }
-    })
   })
 
-  function getTodayDate() {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
+
 </script>
 
 </html>
