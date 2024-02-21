@@ -105,7 +105,7 @@ function getDeliveryDashboardList() {
 
         curList = resp?.message[0];
         filteredList = [...curList.slice(0, 50)];
-        console.log(filteredList);
+
         filteredList.map((item) => {
           $("#table_data").append(settableRowData(item));
         });
@@ -127,7 +127,7 @@ function getTodayDate() {
 
 // Set Pagination
 function setPagination(order_count) {
-  console.log(order_count);
+
   order_count = parseInt(order_count);
   let pages = Math.ceil(order_count / 20);
 
@@ -143,7 +143,7 @@ function setPagination(order_count) {
     // }
     pagination_sec += `<li class="paginate_button page-item next" id="order-listing_next"><a
     aria-controls="order-listing" data-dt-idx="3" tabindex="0" class="page-link" onclick="getNextData()">Next</a></li>`;
-    console.log(pagination_sec);
+
     $('ul[class="pagination"]').append(pagination_sec);
   }
 }
@@ -171,7 +171,8 @@ function getPreviousData() {
 }
 
 function getNextData() {
-  console.log("next");
+
+
   let currentIndex;
 
   for (let i = 0; i < curList.length; i++) {
@@ -184,7 +185,7 @@ function getNextData() {
   const filterData = [...curList.slice(currentIndex, currentIndex + 50)];
 
   if (filterData.length > 0) {
-    console.log(filterData, "filter dAata");
+
     filteredList = filterData;
     $("#table_data")[0].innerHTML = "";
     filteredList.map((item) => {
@@ -192,6 +193,36 @@ function getNextData() {
     });
   } else {
     alert("No More Data");
+  }
+}
+
+function formSelect(order_id) {
+  const documentId = '#' + order_id
+  const selectValue = $(documentId).find(":selected").text()
+  if (selectValue === "Edit") window.location.href = `/order-review?id=${order_id}`
+  else if (selectValue === "Delete") {
+    frappe.call({
+      method: "frappe.client.set_value",
+      args: {
+        doctype: "Delivery Dashboard Form",
+        name: order_id,
+        fieldname: "order_status",
+        value: "Cancelled",
+      },
+      callback: function (r) { alert('Cancelled') }
+    });
+  }
+  else if (selectValue === "Delivered") {
+    frappe.call({
+      method: "frappe.client.set_value",
+      args: {
+        doctype: "Delivery Dashboard Form",
+        name: order_id,
+        fieldname: "order_status",
+        value: "Delivered",
+      },
+      callback: function (r) { alert('Delivered') }
+    });
   }
 }
 
@@ -210,17 +241,12 @@ function settableRowData(item) {
 <label class="badge badge-info">${item.order_status}</label>
 </td>
 <td>
-<div class="btn-group" role="group" aria-label="Basic example">
-<button type="button" class="btn btn-outline-secondary">
-  <i class="mdi mdi-lead-pencil"></i>
-</button>
-<button type="button" class="btn btn-outline-secondary">
-  <i class="mdi mdi-delete"></i>
-</button>
-<button type="button" class="btn btn-outline-secondary">
-  <i class="mdi mdi-rotate-right"></i>
-</button>
-</div>
+<select style="width: 5rem;height: 2rem;" onchange="formSelect('${item.name}')" id="${item.name}">
+<option></option>
+<option value="Edit">Edit</option>
+<option value="Delete">Delete</option>
+<option value="Delivered">Delivered</option>
+</select>
 </td>
 </tr>`;
 }

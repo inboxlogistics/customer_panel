@@ -8,7 +8,7 @@ $(() => {
       args: { order_id },
     })
     .then((resp) => {
-      console.log(resp.message);
+
       curFrm = resp.message;
       frappe
         .call({
@@ -33,7 +33,7 @@ $(() => {
           addRow(item);
         });
       }
-      console.log(`${key}: ${value}`);
+
     }
   }
 
@@ -48,55 +48,46 @@ $(() => {
 
     let addcontrols = `<tr>
       <td><div class ='items_checkbox' ><input type='checkbox' row_id = "${row_id}" data-fieldname="row_check" data-id="${row_id}-row_check" style="height: 20px;min-width: 20px;"/>
-      ${
-        item.sr_no
-          ? item.sr_no
-          : curFrm?.items && curFrm?.items.length > 0
+      ${item.sr_no
+        ? item.sr_no
+        : curFrm?.items && curFrm?.items.length > 0
           ? curFrm.items.length + 1
           : 1
       } 
       </div></td>
       <td> 
-      <input type="text" row_id = "${row_id}" data-fieldname="tag" ${
-      item.tag ? setInputValue(item.tag) : ""
-    } data-id="${row_id}-tag"/>
+      <input type="text" row_id = "${row_id}" data-fieldname="tag" ${item.tag ? setInputValue(item.tag) : ""
+      } data-id="${row_id}-tag"/>
       </td>
       <td style="width:150px;"> 
-      <input type="text" row_id = "${row_id}" ${
-      item.item_code ? setInputValue(item.item_code) : ""
-    } data-fieldname="item_code" list="${row_id}-item_code" data-id="${row_id}-item_code"/> 
+      <input type="text" row_id = "${row_id}" ${item.item_code ? setInputValue(item.item_code) : ""
+      } data-fieldname="item_code" list="${row_id}-item_code" data-id="${row_id}-item_code"/> 
       ${addDataList(row_id)}
      
       </td>
       <td> 
-      <input type="text" row_id = "${row_id}" data-fieldname="barcode" ${
-      item.barcode ? setInputValue(item.barcode) : ""
-    } data-id="${row_id}-barcode"/>
+      <input type="text" row_id = "${row_id}" data-fieldname="barcode" ${item.barcode ? setInputValue(item.barcode) : ""
+      } data-id="${row_id}-barcode"/>
       </td>
       <td> 
-      <input type="text" row_id = "${row_id}" data-fieldname="qty" ${
-      item.qty ? setInputValue(item.qty) : ""
-    } data-id="${row_id}-qty"/>
+      <input type="text" row_id = "${row_id}" data-fieldname="qty" ${item.qty ? setInputValue(item.qty) : ""
+      } data-id="${row_id}-qty"/>
       </td>
       <td> 
-      <input type="text" row_id = "${row_id}" data-fieldname="uom" ${
-      item.uom ? setInputValue(item.uom) : ""
-    } data-id="${row_id}-uom" list="${row_id}-uom"/>
+      <input type="text" row_id = "${row_id}" data-fieldname="uom" ${item.uom ? setInputValue(item.uom) : ""
+      } data-id="${row_id}-uom" list="${row_id}-uom"/>
       </td>
       <td> 
-      <input type="text" row_id = "${row_id}" data-fieldname="rate" ${
-      item.rate ? setInputValue(item.rate) : ""
-    } data-id="${row_id}-rate"/>
+      <input type="text" row_id = "${row_id}" data-fieldname="rate" ${item.rate ? setInputValue(item.rate) : ""
+      } data-id="${row_id}-rate"/>
       </td>
       <td> 
-      <input type="text" row_id = "${row_id}" data-fieldname="total" readonly ${
-      item.total ? setInputValue(item.total) : ""
-    } data-id="${row_id}-total"/>
+      <input type="text" row_id = "${row_id}" data-fieldname="total" readonly ${item.total ? setInputValue(item.total) : ""
+      } data-id="${row_id}-total"/>
       </td>
       <td> 
-      <select row_id = "${row_id}" data-fieldname="vas" ${
-      item.vas ? setInputValue(item.vas) : ""
-    } data-id="${row_id}-vas">
+      <select row_id = "${row_id}" data-fieldname="vas" ${item.vas ? setInputValue(item.vas) : ""
+      } data-id="${row_id}-vas">
       <option value="No"> No </option>
       <option value="Yes"> Yes </option>
       </select>
@@ -111,13 +102,13 @@ $(() => {
     item.row_id
       ? ""
       : curFrm.items.push({
-          row_id: row_id,
-          sr_no: item.sr_no
-            ? item.sr_no
-            : curFrm?.items && curFrm?.items.length > 0
+        row_id: row_id,
+        sr_no: item.sr_no
+          ? item.sr_no
+          : curFrm?.items && curFrm?.items.length > 0
             ? curFrm.items.length + 1
             : 1,
-        });
+      });
   }
 
   const generateUID = () => {
